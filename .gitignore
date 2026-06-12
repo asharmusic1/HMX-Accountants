@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Stitch migration and scratch files
+*.html
+*project.json
+*sorted.txt
+*downloads.txt
+*screens.txt
+*screenInstances*.txt
+html2jsx.js
+/stitch-export
+
