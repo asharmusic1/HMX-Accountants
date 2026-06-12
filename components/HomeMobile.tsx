@@ -10,6 +10,16 @@ export default function HomeMobile() {
   const [swipeKey, setSwipeKey] = useState(0);
   return (
     <>
+      <style>{`
+        @keyframes spin-sideways {
+          0% { transform: rotateY(0deg); }
+          100% { transform: rotateY(360deg); }
+        }
+        .animate-spin-sideways {
+          animation: spin-sideways 12s linear infinite;
+          perspective: 1000px;
+        }
+      `}</style>
       {/* Hero */}
       <section
         className="relative px-margin-mobile pt-44 pb-8 overflow-hidden"
@@ -26,7 +36,7 @@ export default function HomeMobile() {
             <img 
               src="/hmx-hero-logo.png" 
               alt="HMX Accounting Logo" 
-              className="h-44 w-auto object-contain animate-[spin_15s_linear_infinite]"
+              className="h-44 w-auto object-contain animate-spin-sideways"
             />
           </div>
           <div className="flex justify-start mb-1">
@@ -208,19 +218,19 @@ export default function HomeMobile() {
             <h3 className="text-xl uppercase tracking-[0.1em] font-bold text-on-surface">Refer a Friend. Get £30 Off.</h3>
             <p className="text-on-surface-variant text-sm italic opacity-80 mb-2">Share the love and save right away</p>
 
-            {/* Swipe Left Bar */}
-            <div className="w-full max-w-[280px] h-12 bg-[#F0F9EB]/60 border border-brand-green/20 rounded-full relative overflow-hidden flex items-center justify-end px-1.5 select-none">
+            {/* Swipe Right Bar */}
+            <div className="w-full max-w-[280px] h-12 bg-[#F0F9EB]/60 border border-brand-green/20 rounded-full relative overflow-hidden flex items-center justify-start px-1.5 select-none">
               <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-brand-green/75 tracking-wider uppercase pointer-events-none animate-pulse">
-                « Swipe left to share on WhatsApp
+                Swipe right to share on WhatsApp »
               </span>
               <motion.div
                 key={swipeKey}
                 drag="x"
-                dragConstraints={{ left: -220, right: 0 }}
-                dragElastic={{ left: 0.1, right: 0 }}
+                dragConstraints={{ left: 0, right: 220 }}
+                dragElastic={{ left: 0, right: 0.1 }}
                 dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
                 onDragEnd={(event, info) => {
-                  if (info.offset.x < -150) {
+                  if (info.offset.x > 150) {
                     const shareText = encodeURIComponent("Check out HMX Accounting! Simple, affordable, professional accounting support for the self-employed: https://hmxaccountants.co.uk");
                     window.open(`https://api.whatsapp.com/send?text=${shareText}`, "_blank");
                   }
@@ -228,7 +238,7 @@ export default function HomeMobile() {
                 }}
                 className="w-9 h-9 bg-brand-green rounded-full flex items-center justify-center shadow-md cursor-grab active:cursor-grabbing z-10"
               >
-                <span className="material-symbols-outlined text-white text-lg font-bold">chevron_left</span>
+                <span className="material-symbols-outlined text-white text-lg font-bold">chevron_right</span>
               </motion.div>
             </div>
           </div>
