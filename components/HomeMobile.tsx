@@ -38,8 +38,8 @@ export default function HomeMobile() {
       >
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
-        <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
-          <div className="mb-3 flex justify-center relative" style={{ perspective: "1000px" }}>
+        <div className="relative z-10 space-y-1.5 pt-0 -mt-14">
+          <div className="mb-1 flex justify-center relative" style={{ perspective: "1000px" }}>
             {/* White Spotlight Cone from Header Logo down to Hero Logo */}
             <div 
               className="absolute pointer-events-none z-0 animate-spotlight-pulse"
