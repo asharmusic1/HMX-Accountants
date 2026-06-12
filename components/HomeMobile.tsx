@@ -20,9 +20,12 @@ export default function HomeMobile() {
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
         <div className="relative z-10 space-y-1.5 pt-0">
-          <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
-            <span className="material-symbols-outlined text-[10px] text-primary">verified</span>
-            <span className="font-mono text-[8px] text-primary uppercase tracking-wider font-semibold">HMRC Recognized</span>
+          <div className="mb-3">
+            <img 
+              src="/hmx-hero-logo.png" 
+              alt="HMX Accounting Logo" 
+              className="h-24 w-auto object-contain"
+            />
           </div>
           <h1 
             className="text-[16px] font-black leading-tight tracking-tight text-on-surface"

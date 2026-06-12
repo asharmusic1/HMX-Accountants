@@ -38,10 +38,10 @@ export default function Header() {
           <Link href="/" className="flex items-center justify-center" aria-label="HMX Accounting Logo">
             <Image
               alt="HMX Accounting Logo"
-              className="h-11 w-auto object-contain"
-              width={150}
-              height={44}
-              src="/hmx-logo.png"
+              className="h-14 w-auto object-contain"
+              width={56}
+              height={56}
+              src="/hmx-header-logo.png"
               priority
             />
           </Link>
