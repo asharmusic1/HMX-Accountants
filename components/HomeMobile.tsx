@@ -24,8 +24,14 @@ export default function HomeMobile() {
             <img 
               src="/hmx-hero-logo.png" 
               alt="HMX Accounting Logo" 
-              className="h-28 w-auto object-contain"
+              className="h-36 w-auto object-contain"
             />
+          </div>
+          <div className="flex justify-center mb-1">
+            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
+              <span className="material-symbols-outlined text-[10px] text-primary">verified</span>
+              <span className="font-mono text-[8px] text-primary uppercase tracking-wider font-semibold">HMRC Approved</span>
+            </div>
           </div>
           <h1 
             className="text-[16px] font-black leading-tight tracking-tight text-on-surface"
