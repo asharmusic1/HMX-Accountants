@@ -19,6 +19,13 @@ export default function HomeMobile() {
           animation: spin-sideways 12s linear infinite;
           transform-style: preserve-3d;
         }
+        @keyframes spotlight-pulse {
+          0%, 100% { opacity: 0.85; }
+          50% { opacity: 1; }
+        }
+        .animate-spotlight-pulse {
+          animation: spotlight-pulse 5s ease-in-out infinite;
+        }
       `}</style>
       {/* Hero */}
       <section
@@ -33,21 +40,32 @@ export default function HomeMobile() {
 
         <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
           <div className="mb-3 flex justify-center relative" style={{ perspective: "1000px" }}>
-            {/* 3D Glowing Bleach-colored Light Plate (tilted flat underneath the logo) */}
+            {/* White Spotlight Cone from Header Logo down to Hero Logo */}
             <div 
-              className="absolute bottom-[14px] left-1/2 -translate-x-1/2 w-44 h-3 rounded-full border border-white/60 pointer-events-none z-0"
+              className="absolute pointer-events-none z-0 animate-spotlight-pulse"
               style={{
-                background: "radial-gradient(ellipse at center, rgba(255,255,255,0.95) 0%, rgba(245,247,246,0.6) 60%, transparent 100%)",
-                boxShadow: "0 0 20px 4px rgba(255,255,255,0.95), 0 0 10px rgba(240,245,242,0.8)",
-                transform: "rotateX(80deg)",
+                top: "-150px", // Reaches up behind the header logo
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "280px",
+                height: "320px",
+                background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.15) 60%, transparent 100%)",
+                clipPath: "polygon(46% 0, 54% 0, 100% 100%, 0 100%)",
+                WebkitClipPath: "polygon(46% 0, 54% 0, 100% 100%, 0 100%)",
+                filter: "blur(6px)",
               }}
             ></div>
 
-            {/* Rising Bleach Light Glow casting upward behind the logo */}
+            {/* Glowing spotlight ambient aura behind the rotating logo */}
             <div 
-              className="absolute bottom-[20px] left-1/2 -translate-x-1/2 w-48 h-36 rounded-t-full blur-2xl pointer-events-none z-0"
+              className="absolute pointer-events-none z-0 rounded-full blur-2xl animate-spotlight-pulse"
               style={{
-                background: "linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(240,248,245,0.4) 40%, transparent 100%)",
+                top: "10px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "180px",
+                height: "180px",
+                background: "radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 70%)",
               }}
             ></div>
 
