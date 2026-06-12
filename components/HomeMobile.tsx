@@ -33,11 +33,24 @@ export default function HomeMobile() {
 
         <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
           <div className="mb-3 flex justify-center relative" style={{ perspective: "1000px" }}>
-            {/* Premium Soft Shadow behind the 3D rotating logo */}
+            {/* 3D Glowing White/Green Light Plate (tilted flat underneath the logo) */}
             <div 
-              className="absolute w-44 h-44 bg-black/35 rounded-full blur-2xl pointer-events-none transform translate-y-6 scale-90"
-              style={{ mixBlendMode: "multiply", zIndex: 0 }}
+              className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-44 h-8 rounded-full border border-white/50 pointer-events-none z-0"
+              style={{
+                background: "radial-gradient(ellipse at center, rgba(255,255,255,0.85) 0%, rgba(85,156,23,0.4) 60%, transparent 100%)",
+                boxShadow: "0 0 20px 5px rgba(255,255,255,0.9), 0 0 15px rgba(85,156,23,0.5)",
+                transform: "rotateX(75deg)",
+              }}
             ></div>
+
+            {/* Rising White and Green Light Glow casting upward behind the logo */}
+            <div 
+              className="absolute bottom-1 left-1/2 -translate-x-1/2 w-48 h-36 rounded-t-full blur-2xl pointer-events-none z-0"
+              style={{
+                background: "linear-gradient(to top, rgba(255,255,255,0.85) 0%, rgba(85,156,23,0.3) 45%, transparent 100%)",
+              }}
+            ></div>
+
             <div 
               className="relative h-44 w-64 animate-spin-sideways flex items-center justify-center z-10" 
               style={{ transformStyle: "preserve-3d" }}
