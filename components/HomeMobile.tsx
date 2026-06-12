@@ -113,7 +113,7 @@ export default function HomeMobile() {
             <span className="text-brand-green block">We&apos;ll Handle HMRC</span>
           </h1>
           <p 
-            className="text-[13px] text-on-surface-variant font-bold leading-relaxed"
+            className="text-[11.5px] text-on-surface-variant font-bold leading-relaxed"
           >
             Simple, affordable, professional accounting support<br />
             for <span className="font-extrabold text-on-surface">self-employed people in the UK.</span>
