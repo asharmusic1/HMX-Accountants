@@ -20,11 +20,11 @@ export default function HomeMobile() {
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
         <div className="relative z-10 space-y-1.5 pt-0">
-          <div className="mb-3">
+          <div className="mb-3 flex justify-center">
             <img 
               src="/hmx-hero-logo.png" 
               alt="HMX Accounting Logo" 
-              className="h-24 w-auto object-contain"
+              className="h-28 w-auto object-contain"
             />
           </div>
           <h1 
