@@ -100,20 +100,20 @@ export default function HomeMobile() {
               })}
             </div>
           </div>
-          <div className="flex justify-start mb-1">
-            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
-              <span className="material-symbols-outlined text-[10px] text-primary">verified</span>
-              <span className="font-mono text-[8px] text-primary uppercase tracking-wider font-semibold">HMRC Approved</span>
+          <div className="flex justify-start mb-1.5">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
+              <span className="material-symbols-outlined text-[13px] text-primary">verified</span>
+              <span className="font-mono text-[10.5px] text-primary uppercase tracking-wider font-semibold">HMRC Approved</span>
             </div>
           </div>
           <h1 
-            className="text-[16px] font-black leading-tight tracking-tight text-on-surface"
+            className="text-[22px] font-black leading-tight tracking-tight text-on-surface"
           >
             You Run The Business,{" "}
             <span className="text-brand-green block">We&apos;ll Handle HMRC</span>
           </h1>
           <p 
-            className="text-[10.5px] text-on-surface-variant font-bold leading-relaxed"
+            className="text-[13px] text-on-surface-variant font-bold leading-relaxed"
           >
             Simple, affordable, professional accounting support<br />
             for <span className="font-extrabold text-on-surface">self-employed people in the UK.</span>
