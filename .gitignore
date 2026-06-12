@@ -50,3 +50,6 @@ next-env.d.ts
 html2jsx.js
 /stitch-export
 
+
+# Local Netlify folder
+.netlify
