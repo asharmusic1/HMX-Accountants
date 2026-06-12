@@ -12,16 +12,19 @@ export default function HomeMobile() {
     <>
       {/* Hero */}
       <section
-        className="relative px-margin-mobile pt-24 pb-8 overflow-hidden"
+        className="relative px-margin-mobile pt-24 pb-48 overflow-hidden min-h-[560px]"
         style={{
           backgroundImage: `url("${MOBILE_HERO_BG}")`,
           backgroundSize: "cover",
-          backgroundPosition: "35% center",
+          backgroundPosition: "78% center",
         }}
       >
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        {/* Left-to-right white fade overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-white/70 to-transparent z-10 pointer-events-none"></div>
 
-        <div className="relative z-10 space-y-4 pt-0">
+        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl z-0"></div>
+
+        <div className="relative z-20 space-y-4 pt-0 max-w-[75%]">
           {/* HMRC Approved Badge */}
           <div className="flex justify-start">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F0F9EB] rounded-full border border-brand-green/20">
@@ -75,87 +78,49 @@ export default function HomeMobile() {
           <p className="text-[10.5px] text-on-surface-variant/80 italic font-semibold">
             Trusted by self-employed professionals across the UK.
           </p>
-
-          {/* Moveable/Animated Accounting Props */}
-          <div className="relative w-full h-[180px] mt-6 overflow-visible">
-            {/* Floating Chart Icon */}
-            <motion.div
-              drag
-              dragConstraints={{ left: -10, right: 10, top: -10, bottom: 10 }}
-              animate={{
-                y: [0, -6, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute top-2 left-[10%] w-6 h-6 bg-white/95 rounded-lg shadow-md border border-white/40 flex items-center justify-center cursor-grab active:cursor-grabbing z-20 select-none"
-            >
-              <span className="material-symbols-outlined text-brand-green text-xs">bar_chart</span>
-            </motion.div>
-
-            {/* Floating Pound Icon */}
-            <motion.div
-              drag
-              dragConstraints={{ left: -10, right: 10, top: -10, bottom: 10 }}
-              animate={{
-                y: [0, -8, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5,
-              }}
-              className="absolute top-0 right-[15%] w-7 h-7 bg-[#eaf4e6]/95 rounded-full shadow-md border border-white/40 flex items-center justify-center cursor-grab active:cursor-grabbing z-20 select-none"
-            >
-              <span className="text-brand-green font-bold text-[10px]">£</span>
-            </motion.div>
-
-            {/* Your Accounts Summary Card */}
-            <motion.div
-              drag
-              dragConstraints={{ left: -30, right: 30, top: -30, bottom: 30 }}
-              animate={{
-                y: [0, -8, 0],
-                rotate: [0, 1.5, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute top-10 left-[22%] bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-xl border border-white/40 w-[185px] cursor-grab active:cursor-grabbing z-10 select-none"
-            >
-              <div className="flex items-center gap-1.5 mb-2">
-                <div className="w-5 h-5 bg-[#559C17] rounded-full flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-white text-[10px] font-bold">trending_up</span>
-                </div>
-                <span className="text-[10px] font-extrabold text-[#0d233a] tracking-tight">Your Accounts Summary</span>
-              </div>
-              <div className="space-y-1.5 text-[9px]">
-                <div className="flex justify-between items-center">
-                  <span className="text-on-surface-variant font-semibold">Income</span>
-                  <span className="font-extrabold text-on-surface">£26,800.00</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-on-surface-variant font-semibold">Expenses</span>
-                  <span className="font-extrabold text-on-surface">£8,450.20</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-on-surface-variant font-semibold">Tax Due</span>
-                  <span className="font-extrabold text-on-surface">£2,341.12</span>
-                </div>
-              </div>
-              <div className="w-full h-px bg-outline-variant/20 my-2"></div>
-              <div className="flex justify-between items-center text-[10px] font-black">
-                <span className="text-[#0d233a]">Net Pay</span>
-                <span className="text-brand-green text-[11px] font-black">£16,008.68</span>
-              </div>
-            </motion.div>
-          </div>
         </div>
+
+        {/* Your Accounts Summary Card */}
+        <motion.div
+          drag
+          dragConstraints={{ left: -30, right: 30, top: -30, bottom: 30 }}
+          animate={{
+            y: [0, -8, 0],
+            rotate: [0, 1.5, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-6 right-4 bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-xl border border-white/40 w-[185px] cursor-grab active:cursor-grabbing z-20 select-none"
+        >
+          <div className="flex items-center gap-1.5 mb-2">
+            <div className="w-5 h-5 bg-[#559C17] rounded-full flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-white text-[10px] font-bold">trending_up</span>
+            </div>
+            <span className="text-[10px] font-extrabold text-[#0d233a] tracking-tight">Your Accounts Summary</span>
+          </div>
+          <div className="space-y-1.5 text-[9px]">
+            <div className="flex justify-between items-center">
+              <span className="text-on-surface-variant font-semibold">Income</span>
+              <span className="font-extrabold text-on-surface">£26,800.00</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-on-surface-variant font-semibold">Expenses</span>
+              <span className="font-extrabold text-on-surface">£8,450.20</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-on-surface-variant font-semibold">Tax Due</span>
+              <span className="font-extrabold text-on-surface">£2,341.12</span>
+            </div>
+          </div>
+          <div className="w-full h-px bg-outline-variant/20 my-2"></div>
+          <div className="flex justify-between items-center text-[10px] font-black">
+            <span className="text-[#0d233a]">Net Pay</span>
+            <span className="text-brand-green text-[11px] font-black">£16,008.68</span>
+          </div>
+        </motion.div>
       </section>
 
       {/* Why Trust HMX */}

@@ -36,13 +36,10 @@ export default function Header() {
         {/* Center: Logo */}
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
           <Link href="/" className="flex items-center justify-center" aria-label="HMX Accounting Logo">
-            <Image
+            <img
               alt="HMX Accounting Logo"
-              className="h-14 w-auto object-contain"
-              width={56}
-              height={56}
+              className="h-12 w-auto object-contain"
               src="/hmx-header-logo.png"
-              priority
             />
           </Link>
         </div>
