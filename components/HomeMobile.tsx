@@ -247,9 +247,9 @@ export default function HomeMobile() {
                 dragElastic={{ left: 0, right: 0.1 }}
                 dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
                 onDragEnd={(event, info) => {
-                  if (info.offset.x > 150) {
+                  if (info.offset.x > 100) {
                     const shareText = encodeURIComponent("Check out HMX Accounting! Simple, affordable, professional accounting support for the self-employed: https://hmxaccountants.co.uk");
-                    window.open(`https://api.whatsapp.com/send?text=${shareText}`, "_blank");
+                    window.location.href = `https://api.whatsapp.com/send?text=${shareText}`;
                   }
                   setSwipeKey((prev) => prev + 1);
                 }}
