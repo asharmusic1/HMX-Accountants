@@ -33,21 +33,21 @@ export default function HomeMobile() {
 
         <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
           <div className="mb-3 flex justify-center relative" style={{ perspective: "1000px" }}>
-            {/* 3D Glowing White/Green Light Plate (tilted flat underneath the logo) */}
+            {/* 3D Glowing Bleach-colored Light Plate (tilted flat underneath the logo) */}
             <div 
-              className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-44 h-8 rounded-full border border-white/50 pointer-events-none z-0"
+              className="absolute bottom-[14px] left-1/2 -translate-x-1/2 w-44 h-3 rounded-full border border-white/60 pointer-events-none z-0"
               style={{
-                background: "radial-gradient(ellipse at center, rgba(255,255,255,0.85) 0%, rgba(85,156,23,0.4) 60%, transparent 100%)",
-                boxShadow: "0 0 20px 5px rgba(255,255,255,0.9), 0 0 15px rgba(85,156,23,0.5)",
-                transform: "rotateX(75deg)",
+                background: "radial-gradient(ellipse at center, rgba(255,255,255,0.95) 0%, rgba(245,247,246,0.6) 60%, transparent 100%)",
+                boxShadow: "0 0 20px 4px rgba(255,255,255,0.95), 0 0 10px rgba(240,245,242,0.8)",
+                transform: "rotateX(80deg)",
               }}
             ></div>
 
-            {/* Rising White and Green Light Glow casting upward behind the logo */}
+            {/* Rising Bleach Light Glow casting upward behind the logo */}
             <div 
-              className="absolute bottom-1 left-1/2 -translate-x-1/2 w-48 h-36 rounded-t-full blur-2xl pointer-events-none z-0"
+              className="absolute bottom-[20px] left-1/2 -translate-x-1/2 w-48 h-36 rounded-t-full blur-2xl pointer-events-none z-0"
               style={{
-                background: "linear-gradient(to top, rgba(255,255,255,0.85) 0%, rgba(85,156,23,0.3) 45%, transparent 100%)",
+                background: "linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(240,248,245,0.4) 40%, transparent 100%)",
               }}
             ></div>
 
