@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const MOBILE_HERO_BG = "/hero-bg.jpg";
 
 export default function HomeMobile() {
+  const [swipeKey, setSwipeKey] = useState(0);
   return (
     <>
       {/* Hero */}
@@ -24,7 +26,7 @@ export default function HomeMobile() {
             <img 
               src="/hmx-hero-logo.png" 
               alt="HMX Accounting Logo" 
-              className="h-36 w-auto object-contain"
+              className="h-44 w-auto object-contain animate-[spin_15s_linear_infinite]"
             />
           </div>
           <div className="flex justify-start mb-1">
@@ -212,6 +214,7 @@ export default function HomeMobile() {
                 « Swipe left to share on WhatsApp
               </span>
               <motion.div
+                key={swipeKey}
                 drag="x"
                 dragConstraints={{ left: -220, right: 0 }}
                 dragElastic={{ left: 0.1, right: 0 }}
@@ -221,6 +224,7 @@ export default function HomeMobile() {
                     const shareText = encodeURIComponent("Check out HMX Accounting! Simple, affordable, professional accounting support for the self-employed: https://hmxaccountants.co.uk");
                     window.open(`https://api.whatsapp.com/send?text=${shareText}`, "_blank");
                   }
+                  setSwipeKey((prev) => prev + 1);
                 }}
                 className="w-9 h-9 bg-brand-green rounded-full flex items-center justify-center shadow-md cursor-grab active:cursor-grabbing z-10"
               >
