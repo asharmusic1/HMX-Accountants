@@ -20,8 +20,40 @@ export default function Header() {
 
   return (
     <>
+      {/* MOBILE HEADER: Straight white line header at the very top (Mobile view only) */}
+      <header className="block md:hidden fixed top-0 left-0 right-0 z-[100] w-full bg-white border-b border-outline-variant/20 h-16 flex items-center px-4 shadow-sm">
+        {/* Far Left: Three-line menu button */}
+        <div className="flex items-center justify-start w-1/3">
+          <button
+            className="p-2 rounded-full hover:bg-surface-variant transition-colors"
+            onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Open mobile menu"
+          >
+            <Menu className="w-6 h-6 text-on-surface" />
+          </button>
+        </div>
+
+        {/* Center: Logo */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+          <Link href="/" className="flex items-center justify-center" aria-label="HMX Accounting Logo">
+            <Image
+              alt="HMX Accounting Logo"
+              className="h-11 w-auto object-contain"
+              width={150}
+              height={44}
+              src="/hmx-logo.png"
+              priority
+            />
+          </Link>
+        </div>
+
+        {/* Far Right: Empty space to balance layout */}
+        <div className="w-1/3"></div>
+      </header>
+
+      {/* DESKTOP HEADER: Floating pill navbar (Desktop view only, code matches original exactly) */}
       <nav
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 w-max ${
+        className={`hidden md:block fixed top-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 w-max ${
           isScrolled ? "scale-95" : ""
         }`}
         id="navbar"

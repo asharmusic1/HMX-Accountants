@@ -23,10 +23,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   }, [isOpen]);
 
   const menuItems = [
+    { label: "Home", href: "/", icon: "home" },
     { label: "Overview", href: "/overview", icon: "overview" },
     { label: "Services", href: "/services", icon: "business_center" },
-    { label: "Pricing", href: "/pricing", icon: "payments" },
-    { label: "HMRC Tax Calculator", href: "/hmrc-tax-calculator", icon: "calculate" },
     { label: "About", href: "/about", icon: "info" },
     { label: "Contact", href: "/contact", icon: "mail" },
   ];
@@ -50,6 +49,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed inset-y-0 left-0 w-4/5 max-w-sm bg-surface shadow-2xl z-[120] md:hidden flex flex-col"
             role="dialog"
+            id="mobile-menu-dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
           >

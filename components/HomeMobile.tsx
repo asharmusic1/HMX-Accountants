@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const MOBILE_HERO_BG = "/hero-bg.jpg";
 
@@ -7,29 +10,145 @@ export default function HomeMobile() {
     <>
       {/* Hero */}
       <section
-        className="relative px-margin-mobile pt-28 pb-12 overflow-hidden"
+        className="relative px-margin-mobile pt-32 pb-8 overflow-hidden"
         style={{
           backgroundImage: `url("${MOBILE_HERO_BG}")`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "35% center",
         }}
       >
-        <div className="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
-        <div className="relative z-10 space-y-6 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/30 shadow-lg p-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
-            <span className="material-symbols-outlined text-[16px] text-primary">verified</span>
-            <span className="font-mono text-[12px] text-primary uppercase tracking-wider">HMRC Recognized</span>
+        <div className="relative z-10 space-y-1.5 pt-0">
+          <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
+            <span className="material-symbols-outlined text-[10px] text-primary">verified</span>
+            <span className="font-mono text-[8px] text-primary uppercase tracking-wider font-semibold">HMRC Recognized</span>
           </div>
-          <h1 className="text-2xl font-bold leading-tight tracking-tight text-on-surface">
+          <h1 
+            className="text-[16px] font-black leading-tight tracking-tight text-on-surface"
+          >
             You Run The Business,{" "}
-            <span className="text-brand-green">We&apos;ll Handle HMRC</span>
+            <span className="text-brand-green block">We&apos;ll Handle HMRC</span>
           </h1>
-          <p className="text-base text-on-surface leading-relaxed">
+          <p 
+            className="text-[10.5px] text-on-surface-variant font-bold leading-relaxed"
+          >
             Simple, affordable, professional accounting support<br />
-            for <span className="font-bold text-on-surface">self-employed people in the UK.</span>
+            for <span className="font-extrabold text-on-surface">self-employed people in the UK.</span>
           </p>
+
+          {/* Moveable/Animated Accounting Props (Super Compact Mobile Sizes) */}
+          <div className="relative w-full h-[180px] mt-6 overflow-visible">
+            {/* Floating Chart Icon */}
+            <motion.div
+              drag
+              dragConstraints={{ left: -10, right: 10, top: -10, bottom: 10 }}
+              animate={{
+                y: [0, -6, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute top-2 left-[20%] w-6 h-6 bg-white/95 rounded-lg shadow-md border border-white/40 flex items-center justify-center cursor-grab active:cursor-grabbing z-20 select-none"
+            >
+              <span className="material-symbols-outlined text-brand-green text-xs">bar_chart</span>
+            </motion.div>
+
+            {/* Floating Pound Icon */}
+            <motion.div
+              drag
+              dragConstraints={{ left: -10, right: 10, top: -10, bottom: 10 }}
+              animate={{
+                y: [0, -8, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+              className="absolute top-0 right-[22%] w-7 h-7 bg-[#eaf4e6]/95 rounded-full shadow-md border border-white/40 flex items-center justify-center cursor-grab active:cursor-grabbing z-20 select-none"
+            >
+              <span className="text-brand-green font-bold text-[10px]">£</span>
+            </motion.div>
+
+            {/* Tax Year Card (Matches desktop content, scaled down) */}
+            <motion.div
+              drag
+              dragConstraints={{ left: -30, right: 30, top: -30, bottom: 30 }}
+              animate={{
+                y: [0, -6, 0],
+                rotate: [-1, -2, -1],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute top-10 left-[10%] bg-white/95 backdrop-blur-sm rounded-xl p-2 shadow-md border border-white/40 w-[112px] cursor-grab active:cursor-grabbing z-10 select-none"
+            >
+              <div className="text-[6px] text-on-surface-variant mb-1 font-bold">Tax Year 2024</div>
+              <div className="space-y-0.5 text-[7px]">
+                <div className="flex justify-between items-center">
+                  <span className="text-on-surface-variant">Income</span>
+                  <span className="font-semibold text-on-surface">£26,800.00</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-on-surface-variant">Expenses</span>
+                  <span className="font-semibold text-on-surface">£8,450.20</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-on-surface-variant">Tax Due</span>
+                  <span className="font-semibold text-on-surface">£2,341.12</span>
+                </div>
+              </div>
+              <div className="w-full h-px bg-outline-variant/20 my-0.5"></div>
+              <div className="flex justify-between items-center text-[7px] font-bold">
+                <span className="text-on-surface">Net Pay</span>
+                <span className="text-brand-green">£16,008.68</span>
+              </div>
+            </motion.div>
+
+            {/* Your Accounts Card (Matches desktop content, scaled down) */}
+            <motion.div
+              drag
+              dragConstraints={{ left: -30, right: 30, top: -30, bottom: 30 }}
+              animate={{
+                y: [0, -5, 0],
+                rotate: [1, 2, 1],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.3,
+              }}
+              className="absolute top-16 right-[8%] bg-white/95 backdrop-blur-sm rounded-xl p-2 shadow-md border border-white/40 w-[122px] cursor-grab active:cursor-grabbing z-10 select-none"
+            >
+              <div className="flex items-center gap-1 mb-1.5 text-[7px] font-bold">
+                <span className="text-on-surface">Your Accounts</span>
+                <span className="material-symbols-outlined text-brand-green text-[8px]" style={{ fontVariationSettings: '"FILL" 1' }}>check_circle</span>
+              </div>
+              <div className="space-y-1">
+                {[
+                  ["£26,800.00", false],
+                  ["£8,450.20", false],
+                  ["£2,341.12", false],
+                  ["£16,008.68", true]
+                ].map(([val, isGreen], i) => (
+                  <div key={i} className={`flex items-center justify-between${i === 3 ? " mt-1 pt-1 border-t border-outline-variant/20" : ""}`}>
+                    <div className="flex gap-1 items-center w-14">
+                      <div className="h-0.5 w-2 bg-surface-variant rounded-full"></div>
+                      <div className="h-0.5 w-6 bg-surface-variant rounded-full"></div>
+                    </div>
+                    <span className={`text-[6px] font-${isGreen ? "bold text-brand-green text-[7px]" : "semibold text-on-surface"}`}>{val}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
