@@ -32,14 +32,26 @@ export default function HomeMobile() {
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
         <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
-          <div className="mb-3 flex justify-center" style={{ perspective: "1000px" }}>
+          <div className="mb-3 flex justify-center relative" style={{ perspective: "1000px" }}>
+            {/* Premium Soft Shadow behind the 3D rotating logo */}
             <div 
-              className="relative h-44 w-64 animate-spin-sideways flex items-center justify-center" 
+              className="absolute w-44 h-44 bg-black/35 rounded-full blur-2xl pointer-events-none transform translate-y-6 scale-90"
+              style={{ mixBlendMode: "multiply", zIndex: 0 }}
+            ></div>
+            <div 
+              className="relative h-44 w-64 animate-spin-sideways flex items-center justify-center z-10" 
               style={{ transformStyle: "preserve-3d" }}
             >
               {[...Array(10)].map((_, i) => {
-                // Stack 10 layers spaced by 0.8px to create physical depth
-                const zOffset = (i - 4.5) * 0.8;
+                // Stack 10 layers: front 5 layers face forward, back 5 layers face backward
+                const isFront = i >= 5;
+                const zOffset = (isFront ? (i - 4.5) : (4.5 - i)) * 0.85;
+                const rotation = isFront ? "rotateY(0deg)" : "rotateY(180deg)";
+                const isOuter = i === 0 || i === 9;
+                
+                // Shading effect: inner layers are darker to simulate metallic edges
+                const brightness = isOuter ? "brightness(1) contrast(1)" : `brightness(${0.45 + (i % 5) * 0.08}) contrast(1.25)`;
+                const dropShadow = isOuter ? "drop-shadow(0 6px 10px rgba(0,0,0,0.25))" : "";
                 return (
                   <img
                     key={i}
@@ -47,9 +59,10 @@ export default function HomeMobile() {
                     alt="HMX Accounting Logo"
                     className="absolute h-full w-auto object-contain select-none"
                     style={{
-                      transform: `translateZ(${zOffset}px)`,
-                      // Shading effect: inner layers are darker to simulate metallic edges
-                      filter: i === 0 || i === 9 ? "none" : "brightness(0.7) contrast(1.2)",
+                      transform: `${rotation} translateZ(${zOffset}px)`,
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
+                      filter: `${brightness} ${dropShadow}`.trim(),
                     }}
                   />
                 );
