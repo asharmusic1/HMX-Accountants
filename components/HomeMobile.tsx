@@ -17,7 +17,7 @@ export default function HomeMobile() {
         }
         .animate-spin-sideways {
           animation: spin-sideways 12s linear infinite;
-          perspective: 1000px;
+          transform-style: preserve-3d;
         }
       `}</style>
       {/* Hero */}
@@ -32,12 +32,29 @@ export default function HomeMobile() {
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
         <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
-          <div className="mb-3 flex justify-center">
-            <img 
-              src="/hmx-hero-logo.png" 
-              alt="HMX Accounting Logo" 
-              className="h-44 w-auto object-contain animate-spin-sideways"
-            />
+          <div className="mb-3 flex justify-center" style={{ perspective: "1000px" }}>
+            <div 
+              className="relative h-44 w-64 animate-spin-sideways flex items-center justify-center" 
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              {[...Array(10)].map((_, i) => {
+                // Stack 10 layers spaced by 0.8px to create physical depth
+                const zOffset = (i - 4.5) * 0.8;
+                return (
+                  <img
+                    key={i}
+                    src="/hmx-hero-logo.png"
+                    alt="HMX Accounting Logo"
+                    className="absolute h-full w-auto object-contain select-none"
+                    style={{
+                      transform: `translateZ(${zOffset}px)`,
+                      // Shading effect: inner layers are darker to simulate metallic edges
+                      filter: i === 0 || i === 9 ? "none" : "brightness(0.7) contrast(1.2)",
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className="flex justify-start mb-1">
             <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
