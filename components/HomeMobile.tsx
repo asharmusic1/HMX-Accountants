@@ -10,7 +10,7 @@ export default function HomeMobile() {
     <>
       {/* Hero */}
       <section
-        className="relative px-margin-mobile pt-32 pb-8 overflow-hidden"
+        className="relative px-margin-mobile pt-44 pb-8 overflow-hidden"
         style={{
           backgroundImage: `url("${MOBILE_HERO_BG}")`,
           backgroundSize: "cover",
@@ -19,7 +19,7 @@ export default function HomeMobile() {
       >
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 
-        <div className="relative z-10 space-y-1.5 pt-0">
+        <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
           <div className="mb-3 flex justify-center">
             <img 
               src="/hmx-hero-logo.png" 
@@ -27,7 +27,7 @@ export default function HomeMobile() {
               className="h-36 w-auto object-contain"
             />
           </div>
-          <div className="flex justify-center mb-1">
+          <div className="flex justify-start mb-1">
             <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
               <span className="material-symbols-outlined text-[10px] text-primary">verified</span>
               <span className="font-mono text-[8px] text-primary uppercase tracking-wider font-semibold">HMRC Approved</span>
@@ -204,7 +204,29 @@ export default function HomeMobile() {
               <span className="material-symbols-outlined text-primary text-2xl">redeem</span>
             </div>
             <h3 className="text-xl uppercase tracking-[0.1em] font-bold text-on-surface">Refer a Friend. Get £30 Off.</h3>
-            <p className="text-on-surface-variant text-sm italic opacity-80">Share the love and save right away</p>
+            <p className="text-on-surface-variant text-sm italic opacity-80 mb-2">Share the love and save right away</p>
+
+            {/* Swipe Left Bar */}
+            <div className="w-full max-w-[280px] h-12 bg-[#F0F9EB]/60 border border-brand-green/20 rounded-full relative overflow-hidden flex items-center justify-end px-1.5 select-none">
+              <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-brand-green/75 tracking-wider uppercase pointer-events-none animate-pulse">
+                « Swipe left to share on WhatsApp
+              </span>
+              <motion.div
+                drag="x"
+                dragConstraints={{ left: -220, right: 0 }}
+                dragElastic={{ left: 0.1, right: 0 }}
+                dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+                onDragEnd={(event, info) => {
+                  if (info.offset.x < -150) {
+                    const shareText = encodeURIComponent("Check out HMX Accounting! Simple, affordable, professional accounting support for the self-employed: https://hmxaccountants.co.uk");
+                    window.open(`https://api.whatsapp.com/send?text=${shareText}`, "_blank");
+                  }
+                }}
+                className="w-9 h-9 bg-brand-green rounded-full flex items-center justify-center shadow-md cursor-grab active:cursor-grabbing z-10"
+              >
+                <span className="material-symbols-outlined text-white text-lg font-bold">chevron_left</span>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
