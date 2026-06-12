@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+  --font-playfair: 'Playfair Display', serif;
+}
+
 /* ── Custom Range Slider (Stitch Tax Estimator style) ── */
 input[type=range] {
   -webkit-appearance: none;
