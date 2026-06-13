@@ -1,0 +1,8 @@
+[
+  {"type":"action","description":"Navigate to the homepage at https://hmx-accountants.netlify.app"},
+  {"type":"assertion","description":"Verify the hamburger menu button with aria-label 'Open mobile menu' is present in the page header"},
+  {"type":"action","description":"Click the hamburger menu button labelled 'Open mobile menu' in the header"},
+  {"type":"assertion","description":"Verify the mobile navigation drawer slides open and displays navigation links including Services, Pricing, About, and Contact inside the drawer panel"},
+  {"type":"action","description":"Click the Close menu button inside the mobile navigation drawer"},
+  {"type":"assertion","description":"Verify the mobile navigation drawer is no longer visible on screen after being closed"}
+]
