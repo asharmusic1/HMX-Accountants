@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   },
   description:
     "Simple, affordable, professional accounting support for self-employed people in the UK. HMRC recognised. AAT licensed.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/manifest.json",
   openGraph: {
     siteName: "HMX Accounting",
     type: "website",
