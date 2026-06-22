@@ -4,9 +4,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hmxaccountants.co.uk"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
-    default: "HMX Accounting | Professional UK Tax Services",
-    template: "%s | HMX Accounting",
+    default: "HMX Accountants | Professional UK Tax Services",
+    template: "%s | HMX Accountants",
   },
   description:
     "Simple, affordable, professional accounting support for self-employed people in the UK. HMRC recognised. AAT licensed.",
@@ -19,9 +23,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    siteName: "HMX Accounting",
+    siteName: "HMX Accountants",
     type: "website",
-    title: "HMX Accounting | Professional UK Tax Services",
+    title: "HMX Accountants | Professional UK Tax Services",
     description: "Professional accounting and tax services for self-employed people across the UK.",
   },
 };

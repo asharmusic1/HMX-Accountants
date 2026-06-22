@@ -53,7 +53,7 @@ export default function LegalPageLayout({
             style={{ backgroundColor: "rgb(85, 156, 23)" }}
           >
             <span className="material-symbols-outlined text-[16px]">mail</span>
-            Contact HMX Accounting
+            Contact HMX Accountants
           </Link>
         </div>
       </div>

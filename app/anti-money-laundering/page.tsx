@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import LegalPageLayout, { LegalSection } from "@/components/LegalPageLayout";
 
 export const metadata: Metadata = {
-  title: "HMX Accounting | Anti-Money Laundering",
-  description: "HMX Accounting's Anti-Money Laundering policy and client due diligence procedures.",
+  title: "HMX Accountants | Anti-Money Laundering",
+  description: "HMX Accountants' Anti-Money Laundering policy and client due diligence procedures.",
+  alternates: {
+    canonical: "/anti-money-laundering",
+  },
 };
 
 export default function AntiMoneyLaundering() {
@@ -61,7 +64,7 @@ export default function AntiMoneyLaundering() {
 
       <LegalSection title="5. Staff Training">
         <p>
-          All HMX Accounting personnel are trained in AML obligations, the recognition of suspicious
+          All HMX Accountants personnel are trained in AML obligations, the recognition of suspicious
           activity, and our internal reporting procedures. This training is updated regularly.
         </p>
       </LegalSection>
@@ -69,8 +72,8 @@ export default function AntiMoneyLaundering() {
       <LegalSection title="6. Contact">
         <p>
           If you have any questions about our AML procedures, please contact our Compliance Officer at{" "}
-          <a href="mailto:info@hmxaccounting.co.uk" className="text-primary underline">
-            info@hmxaccounting.co.uk
+          <a href="mailto:info@hmxaccountants.co.uk" className="text-primary underline">
+            info@hmxaccountants.co.uk
           </a>.
         </p>
       </LegalSection>

@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import LegalPageLayout, { LegalSection } from "@/components/LegalPageLayout";
 
 export const metadata: Metadata = {
-  title: "HMX Accounting | Terms of Service",
-  description: "The terms and conditions governing the use of HMX Accounting's website and professional services.",
+  title: "HMX Accountants | Terms of Service",
+  description: "The terms and conditions governing the use of HMX Accountants' website and professional services.",
+  alternates: {
+    canonical: "/terms-of-service",
+  },
 };
 
 export default function TermsOfService() {
@@ -15,14 +18,14 @@ export default function TermsOfService() {
     >
       <LegalSection title="1. Agreement to Terms">
         <p>
-          By engaging HMX Accounting Services UK Ltd (&quot;HMX Accounting&quot;) for any service, you agree to be
+          By engaging HMX Accounting Services UK Ltd (&quot;HMX Accountants&quot;) for any service, you agree to be
           bound by these Terms of Service. If you do not agree, you should not use our services.
         </p>
       </LegalSection>
 
       <LegalSection title="2. Services Provided">
         <p>
-          HMX Accounting provides professional accounting, tax preparation, and advisory services as detailed
+          HMX Accountants provides professional accounting, tax preparation, and advisory services as detailed
           in your letter of engagement. All services are subject to the scope agreed at the time of instruction.
         </p>
         <ul className="list-disc pl-5 space-y-1">
@@ -39,7 +42,7 @@ export default function TermsOfService() {
           are due prior to or upon completion of the service unless otherwise agreed in writing.
         </p>
         <p>
-          HMX Accounting reserves the right to withhold filing or delivery of work until full payment
+          HMX Accountants reserves the right to withhold filing or delivery of work until full payment
           has been received.
         </p>
       </LegalSection>
@@ -56,7 +59,7 @@ export default function TermsOfService() {
 
       <LegalSection title="5. Limitation of Liability">
         <p>
-          HMX Accounting&apos;s liability to you is limited to the fees paid for the service in question. We are
+          HMX Accountants&apos;s liability to you is limited to the fees paid for the service in question. We are
           not liable for any indirect, consequential or special loss, including penalties arising from
           inaccurate information provided by you.
         </p>
@@ -72,8 +75,8 @@ export default function TermsOfService() {
       <LegalSection title="7. Contact">
         <p>
           Questions about these Terms should be directed to{" "}
-          <a href="mailto:info@hmxaccounting.co.uk" className="text-primary underline">
-            info@hmxaccounting.co.uk
+          <a href="mailto:info@hmxaccountants.co.uk" className="text-primary underline">
+            info@hmxaccountants.co.uk
           </a>.
         </p>
       </LegalSection>

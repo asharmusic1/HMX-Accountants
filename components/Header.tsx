@@ -35,9 +35,9 @@ export default function Header() {
 
         {/* Center: Logo */}
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
-          <Link href="/" className="flex items-center justify-center" aria-label="HMX Accounting Logo">
+          <Link href="/" className="flex items-center justify-center" aria-label="HMX Accountants Logo">
             <img
-              alt="HMX Accounting Logo"
+              alt="HMX Accountants Logo"
               className="h-12 w-auto object-contain"
               src="/hmx-header-logo.png"
             />
@@ -59,7 +59,7 @@ export default function Header() {
           <Link
             href="/"
             className="w-10 h-10 bg-surface rounded-full flex items-center justify-center shrink-0 ml-1 border border-outline-variant/30"
-            aria-label="HMX Accounting Logo"
+            aria-label="HMX Accountants Logo"
           >
             <Image
               alt="Logo"
@@ -78,10 +78,10 @@ export default function Header() {
           </div>
 
           <a
-            href="mailto:info@hmxaccounting.co.uk"
+            href="mailto:info@hmxaccountants.co.uk"
             className="hidden sm:inline-block bg-brand-green text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary transition-colors"
           >
-            info@hmxaccounting.co.uk
+            info@hmxaccountants.co.uk
           </a>
           
           <button

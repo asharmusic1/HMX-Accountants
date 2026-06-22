@@ -3,11 +3,14 @@ import Link from "next/link";
 import ServicesPricing from "@/components/ServicesPricing";
 
 export const metadata: Metadata = {
-  title: "HMX Accounting | Services",
+  title: "HMX Accountants | Services",
   description:
     "Explore our professional accounting services including our tiered self-assessment pricing plans and HMRC Tax Calculator.",
+  alternates: {
+    canonical: "/services",
+  },
   openGraph: {
-    title: "HMX Accounting | Services",
+    title: "HMX Accountants | Services",
     description: "Pricing plans and HMRC Tax Calculator for self-employed professionals.",
   },
 };

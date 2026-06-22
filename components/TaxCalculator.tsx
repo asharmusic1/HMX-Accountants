@@ -114,7 +114,7 @@ export default function TaxCalculator() {
             <strong className="text-white">Estimate only.</strong> This calculator provides a guide and should
             not be treated as tax advice. For accurate advice based on your personal circumstances, please{" "}
             <Link href="/contact" className="text-brand-green underline underline-offset-2">
-              contact HMX Accounting
+              contact HMX Accountants
             </Link>.
           </p>
         </div>

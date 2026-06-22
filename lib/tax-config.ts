@@ -1,5 +1,5 @@
 /**
- * HMX Accounting — UK Tax Configuration
+ * HMX Accountants — UK Tax Configuration
  * 2025/2026 Tax Year
  *
  * Update these values each tax year. All monetary values in GBP (£).

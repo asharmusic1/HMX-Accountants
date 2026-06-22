@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import LegalPageLayout, { LegalSection } from "@/components/LegalPageLayout";
 
 export const metadata: Metadata = {
-  title: "HMX Accounting | HMRC Disclosure",
-  description: "HMX Accounting's HMRC agent authorisation and disclosure information.",
+  title: "HMX Accountants | HMRC Disclosure",
+  description: "HMX Accountants' HMRC agent authorisation and disclosure information.",
+  alternates: {
+    canonical: "/hmrc-disclosure",
+  },
 };
 
 export default function HMRCDisclosure() {
@@ -35,7 +38,7 @@ export default function HMRCDisclosure() {
       <LegalSection title="3. Your Responsibilities">
         <p>As the taxpayer, you remain legally responsible for:</p>
         <ul className="list-disc pl-5 space-y-1">
-          <li>Ensuring all information provided to HMX Accounting is accurate and complete</li>
+          <li>Ensuring all information provided to HMX Accountants is accurate and complete</li>
           <li>Disclosing all sources of income and any relevant changes in your circumstances</li>
           <li>Payment of any tax liabilities due to HMRC by the required deadlines</li>
           <li>Notifying us promptly of any correspondence received directly from HMRC</li>

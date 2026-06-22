@@ -4,11 +4,14 @@ import TaxCalculator from "@/components/TaxCalculator";
 import { TAX_CONFIG } from "@/lib/tax-config";
 
 export const metadata: Metadata = {
-  title: "HMX Accounting | HMRC Tax Calculator",
+  title: "HMX Accountants | HMRC Tax Calculator",
   description:
-    "Estimate your UK self-employed income tax and National Insurance for 2025/2026. Free instant calculator from HMX Accounting.",
+    "Estimate your UK self-employed income tax and National Insurance for 2025/2026. Free instant calculator from HMX Accountants.",
+  alternates: {
+    canonical: "/hmrc-tax-calculator",
+  },
   openGraph: {
-    title: "HMX Accounting | HMRC Tax Calculator",
+    title: "HMX Accountants | HMRC Tax Calculator",
     description: "Free UK self-employment tax estimator — income tax, Class 4 NI and take-home pay.",
   },
 };
@@ -58,7 +61,7 @@ export default function HmrcTaxCalculatorPage() {
             This calculator provides an <strong className="text-white">estimate only</strong> and should not
             be treated as tax advice. Actual figures will vary based on your personal circumstances, employment
             status, allowances and HMRC assessments. For accurate advice tailored to your situation, please
-            contact HMX Accounting.
+            contact HMX Accountants.
           </p>
           <Link
             href="/contact"

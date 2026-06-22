@@ -14,7 +14,7 @@ export default function HomeHeroDesktop() {
           {/* Logo */}
           <div className="relative -ml-2 z-20 mt-4 mb-2">
             <img
-              alt="HMX Accounting"
+              alt="HMX Accountants"
               className="w-auto object-contain h-64 md:h-[340px]"
               src={LOGO_SRC}
             />

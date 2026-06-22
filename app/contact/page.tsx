@@ -3,12 +3,15 @@ import { Suspense } from "react";
 import ContactContent from "@/components/ContactContent";
 
 export const metadata: Metadata = {
-  title: "HMX Accounting | Contact",
+  title: "HMX Accountants | Contact",
   description:
-    "Get in touch with HMX Accounting. Send us a message and we'll get back to you quickly. Email: info@hmxaccounting.co.uk",
+    "Get in touch with HMX Accountants. Send us a message and we'll get back to you quickly. Email: info@hmxaccountants.co.uk",
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
-    title: "HMX Accounting | Contact",
-    description: "Contact HMX Accounting for self-assessment, UTR registration and bookkeeping enquiries.",
+    title: "HMX Accountants | Contact",
+    description: "Contact HMX Accountants for self-assessment, UTR registration and bookkeeping enquiries.",
   },
 };
 

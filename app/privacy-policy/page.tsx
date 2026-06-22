@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import LegalPageLayout, { LegalSection } from "@/components/LegalPageLayout";
 
 export const metadata: Metadata = {
-  title: "HMX Accounting | Privacy Policy",
-  description: "HMX Accounting's Privacy Policy — how we collect, use and protect your personal data.",
+  title: "HMX Accountants | Privacy Policy",
+  description: "HMX Accountants' Privacy Policy — how we collect, use and protect your personal data.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicy() {
@@ -15,14 +18,14 @@ export default function PrivacyPolicy() {
     >
       <LegalSection title="1. Who We Are">
         <p>
-          HMX Accounting Services UK Ltd (&quot;HMX Accounting&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is an AAT licensed
+          HMX Accounting Services UK Ltd (&quot;HMX Accountants&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is an AAT licensed
           accounting practice registered in England and Wales. We are committed to protecting and respecting
           your privacy.
         </p>
         <p>
           For questions about this policy, contact us at{" "}
-          <a href="mailto:info@hmxaccounting.co.uk" className="text-primary underline">
-            info@hmxaccounting.co.uk
+          <a href="mailto:info@hmxaccountants.co.uk" className="text-primary underline">
+            info@hmxaccountants.co.uk
           </a>.
         </p>
       </LegalSection>
@@ -81,8 +84,8 @@ export default function PrivacyPolicy() {
       <LegalSection title="7. Contact">
         <p>
           To exercise any of your rights, or to ask a question about this policy, please email{" "}
-          <a href="mailto:info@hmxaccounting.co.uk" className="text-primary underline">
-            info@hmxaccounting.co.uk
+          <a href="mailto:info@hmxaccountants.co.uk" className="text-primary underline">
+            info@hmxaccountants.co.uk
           </a>.
         </p>
       </LegalSection>

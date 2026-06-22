@@ -80,10 +80,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
             <div className="p-6 border-t border-outline-variant/20">
               <a
-                href="mailto:info@hmxaccounting.co.uk"
+                href="mailto:info@hmxaccountants.co.uk"
                 className="flex items-center justify-center w-full bg-brand-green text-white px-5 py-3.5 rounded-full text-base font-medium hover:bg-primary transition-colors"
               >
-                info@hmxaccounting.co.uk
+                info@hmxaccountants.co.uk
               </a>
             </div>
           </motion.div>

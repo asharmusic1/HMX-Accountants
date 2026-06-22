@@ -18,4 +18,10 @@
   #  port = 3000 # Port that the dev server will be listening on
   #  publish = "dist" # Folder with the static content for _redirect file
 
+[[redirects]]
+  from = "https://hmx-accountants.netlify.app/*"
+  to = "https://hmxaccountants.co.uk/:splat"
+  status = 301
+  force = true
+
   ## more info on configuring this file: https://ntl.fyi/file-based-build-config

@@ -18,7 +18,7 @@ export default function AboutContent() {
           Redefining the <span className="text-[#559B16]">Accounting</span> Experience
         </h1>
         <p className="text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed">
-          HMX Accounting is a UK-based AAT licensed accountancy practice providing clear, affordable, and reliable tax and accounting support for self-employed individuals, sole traders, and small business owners.
+          HMX Accountants is a UK-based AAT licensed accountancy practice providing clear, affordable, and reliable tax and accounting support for self-employed individuals, sole traders, and small business owners.
         </p>
       </section>
 
@@ -34,7 +34,7 @@ export default function AboutContent() {
           <div className="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-8">
             <p className="text-2xl font-semibold text-white leading-tight max-w-xl">
-              &ldquo;HMX Accounting — making tax simple, clear, and stress-free.&rdquo;
+              &ldquo;HMX Accountants — making tax simple, clear, and stress-free.&rdquo;
             </p>
           </div>
         </div>

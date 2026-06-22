@@ -87,7 +87,7 @@ export default function HomeMobile() {
                   <img
                     key={i}
                     src="/hmx-hero-logo.png"
-                    alt="HMX Accounting Logo"
+                    alt="HMX Accountants Logo"
                     className="absolute h-full w-auto object-contain select-none"
                     style={{
                       transform: `${rotation} translateZ(${zOffset}px)`,
@@ -292,7 +292,7 @@ export default function HomeMobile() {
                 dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
                 onDragEnd={(event, info) => {
                   if (info.offset.x > 100) {
-                    const shareText = encodeURIComponent("Check out HMX Accounting! Simple, affordable, professional accounting support for the self-employed: https://hmxaccountants.co.uk");
+                    const shareText = encodeURIComponent("Check out HMX Accountants! Simple, affordable, professional accounting support for the self-employed: https://hmxaccountants.co.uk");
                     window.location.href = `https://api.whatsapp.com/send?text=${shareText}`;
                   }
                   setSwipeKey((prev) => prev + 1);
