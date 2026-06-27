@@ -21,7 +21,7 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
         style={{ objectPosition: "center center" }}
       >
-        <source src="/hmx-hero-video.mp4" type="video/mp4" />
+        <source src="/woman-working-bg.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay for text readability */}
@@ -36,11 +36,11 @@ export default function HeroSection() {
       {/* ─── Desktop Content ─── */}
       <div className="hidden md:flex relative z-10 w-full px-6 md:px-12 lg:px-[8%] xl:px-[10%] justify-start pt-32 pb-24">
         <div className="flex flex-col text-left items-start max-w-xl lg:max-w-2xl">
-          {/* Logo */}
-          <div className="relative -ml-2 z-20 mb-4">
+          {/* Logo (2x size) */}
+          <div className="relative -ml-3 z-20 mb-2">
             <img
               alt="HMX Accountants Logo"
-              className="w-auto object-contain h-28 lg:h-36 select-none drop-shadow-lg"
+              className="w-auto object-contain h-56 lg:h-72 select-none drop-shadow-xl"
               src="/hmx-hero-logo.png"
             />
           </div>
@@ -148,22 +148,22 @@ export default function HeroSection() {
       {/* ─── Mobile Content ─── */}
       <div className="flex md:hidden relative z-10 w-full px-margin-mobile pt-28 pb-8 flex-col">
         <div className="relative z-10 space-y-1.5 pt-0">
-          {/* HMX Logo */}
+          {/* HMX Logo (2x size on mobile) */}
           <div className="mb-3 flex justify-center relative">
-            <div className="relative h-44 w-64 flex items-center justify-center z-10">
+            <div className="relative h-72 w-80 max-w-full flex items-center justify-center z-10">
               <img
                 src="/hmx-hero-logo.png"
                 alt="HMX Accountants Logo"
-                className="h-full w-auto object-contain select-none drop-shadow-lg"
+                className="h-full w-auto object-contain select-none drop-shadow-xl"
               />
             </div>
           </div>
 
-          <h1 className="text-[16px] font-black leading-tight tracking-tight text-white drop-shadow-md">
+          <h1 className="text-[16px] font-black leading-tight tracking-tight text-white drop-shadow-md text-center">
             You Run The Business,{" "}
             <span className="text-brand-green block">We&apos;ll Handle HMRC</span>
           </h1>
-          <p className="text-[10.5px] text-white/85 font-bold leading-relaxed drop-shadow-sm">
+          <p className="text-[10.5px] text-white/85 font-bold leading-relaxed drop-shadow-sm text-center">
             Simple, affordable, professional accounting support<br />
             for <span className="font-extrabold text-white">self-employed people in the UK.</span>
           </p>
