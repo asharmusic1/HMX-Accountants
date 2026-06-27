@@ -21,7 +21,7 @@ export default function HomeHeroDesktop() {
           zIndex: 0,
         }}
       >
-        <source src="/hmx-hero-video.mp4" type="video/mp4" />
+        <source src="/woman-working-smartphone.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay for text readability */}
