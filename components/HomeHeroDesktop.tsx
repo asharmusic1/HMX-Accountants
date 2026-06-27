@@ -1,29 +1,49 @@
-const HERO_BG = "/hero-bg.jpg";
-const LOGO_SRC = "https://lh3.googleusercontent.com/aida-public/AB6AXuCerZH2jez_AcWqORlCA7kR9d96HzboxgPiUdMmiJggK3lQ6GitoDxRHiT-Tx8RUHw32aOqcf0uU785wSVmPRACZkekFEEspBKxAOTIboJnmFRSxVYM6aoYkdeqoIp-Ede88_9mWwErVGSzCbHMO-W634-ElzyTvKM6-1PPOWWkZbEOfnY8H_Ez-njUi8YpmC387DpZfItzyvoGl2Y6t_gdu3BQxZrShuktaHH1bPljEwZvJeiddjqt0rf9btC2sJGNkZTVZaYeaY8";
 const MONEY_BAG_SRC = "https://lh3.googleusercontent.com/aida-public/AB6AXuCnUQGXzJ7j1h1IMBOIvLRcKX_ZPcNx1UVWbdkllNYpSeYAhcAuzT4yI4P3d4KSQJqNRaB3ibon_PmvbdJ82DofaA8yIgldiSCoZ_xR8YNqC4jZGAz3XaUxVDrK6dEysfMJ91VjMmPIKLV5IQQywzLXbMWck6cpqjTwjY2vY1qD2dqTVorJ-9_gNHDWti2gYPpEg-XH8HkNTxMKWcmGWf4Vgoax0BfOLLZ3mCLQcD8H7w1CnEvTJoSLP64Q1QrqvBjiXJvTedATmlI";
 
 export default function HomeHeroDesktop() {
   return (
-    <section
-      className="relative flex items-center overflow-hidden bg-cover bg-center bg-no-repeat min-h-screen pt-32 pb-24"
-      style={{ backgroundImage: `url("${HERO_BG}")` }}
-    >
+    <section className="relative flex items-center overflow-hidden min-h-screen pt-32 pb-24">
+      {/* Fixed Video Background — immune to browser zoom */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        className="pointer-events-none select-none"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          objectFit: "cover",
+          zIndex: 0,
+        }}
+      >
+        <source src="/hmx-hero-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay for text readability */}
+      <div
+        className="pointer-events-none"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          background: "linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.45) 100%)",
+          zIndex: 1,
+        }}
+      />
+
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-[8%] xl:px-[10%] flex justify-start">
         {/* Left Content */}
         <div className="flex flex-col text-left items-start max-w-xl lg:max-w-2xl">
-          {/* Logo */}
-          <div className="relative -ml-2 z-20 mt-4 mb-2">
-            <img
-              alt="HMX Accountants"
-              className="w-auto object-contain h-64 md:h-[340px]"
-              src={LOGO_SRC}
-            />
-          </div>
-
           {/* Headline */}
-          <h1 
-            className="text-5xl md:text-[64px] font-black leading-[1.05] tracking-tight text-on-surface mb-6 relative z-20"
-            style={{ fontFamily: 'Jost, sans-serif' }}
+          <h1
+            className="text-5xl md:text-[64px] font-black leading-[1.05] tracking-tight text-white mb-6 relative z-20 drop-shadow-lg"
           >
             You Run The Business,<br />
             <span className="text-brand-green">We&apos;ll Handle HMRC.</span>
@@ -33,32 +53,32 @@ export default function HomeHeroDesktop() {
           <div className="w-12 h-1 bg-brand-green mb-6 rounded-full relative z-20"></div>
 
           {/* Subtext */}
-          <p className="text-xl md:text-[22px] text-on-surface-variant max-w-xl mb-10 leading-relaxed relative z-20">
+          <p className="text-xl md:text-[22px] text-white/90 max-w-xl mb-10 leading-relaxed relative z-20 drop-shadow-md">
             Simple, affordable, professional accounting support<br />
-            for <span className="font-bold text-on-surface">self-employed people in the UK.</span>
+            for <span className="font-bold text-white">self-employed people in the UK.</span>
           </p>
 
           {/* Trust Signals */}
           <div className="flex items-center gap-6 md:gap-10 relative z-20">
             <div className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 rounded-2xl bg-[#F0F9EB] flex items-center justify-center mb-3 border border-brand-green/20 group-hover:scale-105 transition-transform">
+              <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-3 border border-white/20 group-hover:scale-105 transition-transform">
                 <img alt="Money Bag" className="w-9 h-9 object-contain" src={MONEY_BAG_SRC} />
               </div>
-              <span className="text-sm font-semibold text-on-surface">Affordable Service</span>
+              <span className="text-sm font-semibold text-white drop-shadow-sm">Affordable Service</span>
             </div>
-            <div className="w-px h-14 bg-outline-variant/30"></div>
+            <div className="w-px h-14 bg-white/20"></div>
             <div className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 rounded-2xl bg-[#F0F9EB] flex items-center justify-center mb-3 border border-brand-green/20 group-hover:scale-105 transition-transform">
+              <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-3 border border-white/20 group-hover:scale-105 transition-transform">
                 <span className="material-symbols-outlined text-brand-green text-3xl">description</span>
               </div>
-              <span className="text-sm font-semibold text-on-surface">HMRC Compliant</span>
+              <span className="text-sm font-semibold text-white drop-shadow-sm">HMRC Compliant</span>
             </div>
-            <div className="w-px h-14 bg-outline-variant/30"></div>
+            <div className="w-px h-14 bg-white/20"></div>
             <div className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 rounded-2xl bg-[#F0F9EB] flex items-center justify-center mb-3 border border-brand-green/20 group-hover:scale-105 transition-transform">
+              <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-3 border border-white/20 group-hover:scale-105 transition-transform">
                 <span className="material-symbols-outlined text-brand-green text-3xl">lock</span>
               </div>
-              <span className="text-sm font-semibold text-on-surface">Trusted Support</span>
+              <span className="text-sm font-semibold text-white drop-shadow-sm">Trusted Support</span>
             </div>
           </div>
         </div>

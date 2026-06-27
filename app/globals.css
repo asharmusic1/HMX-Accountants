@@ -1,9 +1,30 @@
 @import "tailwindcss";
 
+/* ── Lloyds Jack Light Font ── */
+@font-face {
+  font-family: "Lloyds Jack Light";
+  src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackLight/lloyds_bank_jack-lightWEB.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lloyds Jack Light";
+  src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackMedium/lloyds_bank_jack-mediumWEB.woff") format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+*:not(.material-symbols-outlined) {
+  font-family: "Lloyds Jack Light", sans-serif !important;
+}
+
 :root {
-  --font-inter: 'Inter', sans-serif;
-  --font-jetbrains-mono: 'JetBrains Mono', monospace;
-  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Lloyds Jack Light', sans-serif;
+  --font-jetbrains-mono: 'Lloyds Jack Light', sans-serif;
+  --font-playfair: 'Lloyds Jack Light', sans-serif;
 }
 
 /* ── Custom Range Slider (Stitch Tax Estimator style) ── */

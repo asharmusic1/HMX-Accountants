@@ -4,119 +4,78 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const MOBILE_HERO_BG = "/hero-bg.jpg";
-
 export default function HomeMobile() {
   const [swipeKey, setSwipeKey] = useState(0);
   return (
     <>
-      <style>{`
-        @keyframes spin-sideways {
-          0% { transform: rotateY(0deg); }
-          100% { transform: rotateY(360deg); }
-        }
-        .animate-spin-sideways {
-          animation: spin-sideways 12s linear infinite;
-          transform-style: preserve-3d;
-        }
-        @keyframes spotlight-pulse {
-          0%, 100% { opacity: 0.85; }
-          50% { opacity: 1; }
-        }
-        .animate-spotlight-pulse {
-          animation: spotlight-pulse 5s ease-in-out infinite;
-        }
-      `}</style>
+      {/* Fixed Video Background — immune to browser zoom */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        className="pointer-events-none select-none"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          objectFit: "cover",
+          zIndex: 0,
+        }}
+      >
+        <source src="/hmx-hero-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay for text readability */}
+      <div
+        className="pointer-events-none"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.5) 100%)",
+          zIndex: 1,
+        }}
+      />
+
       {/* Hero */}
       <section
         className="relative px-margin-mobile pt-44 pb-8 overflow-hidden"
-        style={{
-          backgroundImage: `url("${MOBILE_HERO_BG}")`,
-          backgroundSize: "cover",
-          backgroundPosition: "35% center",
-        }}
+        style={{ zIndex: 2 }}
       >
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-
         <div className="relative z-10 space-y-1.5 pt-0 -mt-10">
-          <div className="mb-3 flex justify-center relative" style={{ perspective: "1000px" }}>
-            {/* White Spotlight Cone from Header Logo down to Hero Logo */}
-            <div 
-              className="absolute pointer-events-none z-0 animate-spotlight-pulse"
-              style={{
-                top: "-150px", // Reaches up behind the header logo
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "280px",
-                height: "320px",
-                background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.15) 60%, transparent 100%)",
-                clipPath: "polygon(46% 0, 54% 0, 100% 100%, 0 100%)",
-                WebkitClipPath: "polygon(46% 0, 54% 0, 100% 100%, 0 100%)",
-                filter: "blur(6px)",
-              }}
-            ></div>
-
-            {/* Glowing spotlight ambient aura behind the rotating logo */}
-            <div 
-              className="absolute pointer-events-none z-0 rounded-full blur-2xl animate-spotlight-pulse"
-              style={{
-                top: "10px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "180px",
-                height: "180px",
-                background: "radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 70%)",
-              }}
-            ></div>
-
-            <div 
-              className="relative h-44 w-64 animate-spin-sideways flex items-center justify-center z-10" 
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              {[...Array(10)].map((_, i) => {
-                // Stack 10 layers: front 5 layers face forward, back 5 layers face backward
-                const isFront = i >= 5;
-                const zOffset = (isFront ? (i - 4.5) : (4.5 - i)) * 0.85;
-                const rotation = isFront ? "rotateY(0deg)" : "rotateY(180deg)";
-                const isOuter = i === 0 || i === 9;
-                
-                // Shading effect: inner layers are darker to simulate metallic edges
-                const brightness = isOuter ? "brightness(1) contrast(1)" : `brightness(${0.45 + (i % 5) * 0.08}) contrast(1.25)`;
-                const dropShadow = isOuter ? "drop-shadow(0 6px 10px rgba(0,0,0,0.25))" : "";
-                return (
-                  <img
-                    key={i}
-                    src="/hmx-hero-logo.png"
-                    alt="HMX Accountants Logo"
-                    className="absolute h-full w-auto object-contain select-none"
-                    style={{
-                      transform: `${rotation} translateZ(${zOffset}px)`,
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
-                      filter: `${brightness} ${dropShadow}`.trim(),
-                    }}
-                  />
-                );
-              })}
+          <div className="mb-3 flex justify-center relative">
+            {/* HMX Logo */}
+            <div className="relative h-44 w-64 flex items-center justify-center z-10">
+              <img
+                src="/hmx-hero-logo.png"
+                alt="HMX Accountants Logo"
+                className="h-full w-auto object-contain select-none drop-shadow-lg"
+              />
             </div>
           </div>
           <div className="flex justify-start mb-1">
-            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
-              <span className="material-symbols-outlined text-[10px] text-primary">verified</span>
-              <span className="font-mono text-[8px] text-primary uppercase tracking-wider font-semibold">HMRC Approved</span>
+            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-white/15 rounded-full border border-white/20 backdrop-blur-sm">
+              <span className="material-symbols-outlined text-[10px] text-brand-green">verified</span>
+              <span className="font-mono text-[8px] text-white uppercase tracking-wider font-semibold">HMRC Approved</span>
             </div>
           </div>
-          <h1 
-            className="text-[16px] font-black leading-tight tracking-tight text-on-surface"
+          <h1
+            className="text-[16px] font-black leading-tight tracking-tight text-white drop-shadow-md"
           >
             You Run The Business,{" "}
             <span className="text-brand-green block">We&apos;ll Handle HMRC</span>
           </h1>
-          <p 
-            className="text-[10.5px] text-on-surface-variant font-bold leading-relaxed"
+          <p
+            className="text-[10.5px] text-white/85 font-bold leading-relaxed drop-shadow-sm"
           >
             Simple, affordable, professional accounting support<br />
-            for <span className="font-extrabold text-on-surface">self-employed people in the UK.</span>
+            for <span className="font-extrabold text-white">self-employed people in the UK.</span>
           </p>
 
           {/* Moveable/Animated Accounting Props (Super Compact Mobile Sizes) */}
@@ -235,10 +194,10 @@ export default function HomeMobile() {
       </section>
 
       {/* Why Trust HMX */}
-      <section className="px-margin-mobile space-y-4 mt-12 py-12">
-        <h2 className="text-[12px] text-on-surface-variant uppercase tracking-widest text-center mb-6 font-mono font-medium">Why trust HMX</h2>
+      <section className="relative px-margin-mobile space-y-4 mt-12 py-12" style={{ zIndex: 2 }}>
+        <h2 className="text-[12px] text-white uppercase tracking-widest text-center mb-6 font-mono font-medium drop-shadow-sm">Why trust HMX</h2>
         <div className="grid grid-cols-1 gap-3">
-          <div className="flex items-center gap-4 p-4 bg-white border border-outline-variant/30 rounded-2xl shadow-sm transition-colors hover:bg-surface-container-low">
+          <div className="flex items-center gap-4 p-4 bg-white/95 backdrop-blur-sm border border-outline-variant/30 rounded-2xl shadow-sm transition-colors hover:bg-white">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
               <span className="material-symbols-outlined">savings</span>
             </div>
@@ -247,7 +206,7 @@ export default function HomeMobile() {
               <p className="text-xs text-on-surface-variant">Fixed pricing, no hidden costs ever.</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 p-4 bg-white border border-outline-variant/30 rounded-2xl shadow-sm transition-colors hover:bg-surface-container-low">
+          <div className="flex items-center gap-4 p-4 bg-white/95 backdrop-blur-sm border border-outline-variant/30 rounded-2xl shadow-sm transition-colors hover:bg-white">
             <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
               <span className="material-symbols-outlined">verified_user</span>
             </div>
@@ -256,7 +215,7 @@ export default function HomeMobile() {
               <p className="text-xs text-on-surface-variant">Guaranteed accuracy for your filings.</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 p-4 bg-white border border-outline-variant/30 rounded-2xl shadow-sm transition-colors hover:bg-surface-container-low">
+          <div className="flex items-center gap-4 p-4 bg-white/95 backdrop-blur-sm border border-outline-variant/30 rounded-2xl shadow-sm transition-colors hover:bg-white">
             <div className="w-12 h-12 rounded-xl bg-tertiary-container/10 flex items-center justify-center text-tertiary shrink-0">
               <span className="material-symbols-outlined">support_agent</span>
             </div>
@@ -269,7 +228,7 @@ export default function HomeMobile() {
       </section>
 
       {/* Referral Banner */}
-      <section className="bg-white px-margin-mobile border-y border-primary/20 relative overflow-hidden py-12">
+      <section className="relative bg-white/95 backdrop-blur-sm px-margin-mobile border-y border-primary/20 overflow-hidden py-12" style={{ zIndex: 2 }}>
         <div className="flex flex-col items-center justify-center text-center gap-2">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
           <div className="relative z-10 flex flex-col items-center justify-center text-center gap-3">
@@ -307,7 +266,7 @@ export default function HomeMobile() {
       </section>
 
       {/* CTA */}
-      <section className="px-margin-mobile py-12 bg-white border-t border-outline-variant/20">
+      <section className="relative px-margin-mobile py-12 bg-white/95 backdrop-blur-sm border-t border-outline-variant/20" style={{ zIndex: 2 }}>
         <div className="flex flex-col items-center text-center space-y-6">
           <h2 className="text-2xl font-bold text-on-surface leading-tight">
             Simplify Your Finances Today

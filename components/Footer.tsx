@@ -9,7 +9,7 @@ export default function Footer() {
             HMX ACCOUNTANTS
           </span>
           <p className="font-body-md text-on-surface-variant dark:text-surface-dim max-w-sm mb-4">
-            © {new Date().getFullYear()} HMX Accounting Services UK Ltd. Registered in England and Wales.
+            © {new Date().getFullYear()} HMX Accountants LTD. Registered in England and Wales.
           </p>
           <div>
             <span className="text-white md:text-on-surface text-sm font-medium">
