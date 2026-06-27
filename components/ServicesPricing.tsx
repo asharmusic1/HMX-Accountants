@@ -1,9 +1,30 @@
-import Link from "next/link";
+"use client";
 
-export default function ServicesPricing() {
+interface ServicesPricingProps {
+  onSelectPlan?: (planName: string) => void;
+}
+
+export default function ServicesPricing({ onSelectPlan }: ServicesPricingProps) {
+  const handleGetStarted = (planName: string) => {
+    if (onSelectPlan) {
+      onSelectPlan(planName);
+    }
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleTalkToUs = () => {
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <section className="bg-inverse-surface text-on-tertiary pt-20 pb-section-margin" id="pricing">
+      <section className="bg-inverse-surface text-on-tertiary pt-20 pb-section-margin" id="services">
         <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-container-padding">
           <div className="text-center mb-16">
             <p className="text-brand-green font-mono text-xs uppercase tracking-widest mb-3">Transparent Pricing</p>
@@ -22,12 +43,12 @@ export default function ServicesPricing() {
                 </div>
                 <p className="mt-4 text-sm text-surface-dim">Ideal for those already registered with a UTR who just need their annual return filed.</p>
               </div>
-              <Link
-                href="/contact?plan=self-assessment"
-                className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white text-center rounded-lg border border-white/20 transition-colors font-semibold mb-8 block"
+              <button
+                onClick={() => handleGetStarted("Self Assessment Only")}
+                className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white text-center rounded-lg border border-white/20 transition-colors font-semibold mb-8 cursor-pointer"
               >
                 Get Started
-              </Link>
+              </button>
               <div className="flex-grow">
                 <div className="text-xs tracking-widest text-surface-dim uppercase mb-4 text-center flex items-center justify-center gap-4">
                   <div className="h-px bg-surface-variant/20 flex-grow"></div>
@@ -59,13 +80,13 @@ export default function ServicesPricing() {
                 </div>
                 <p className="mt-4 text-sm text-surface-dim">The complete package for newly self-employed individuals. We set you up and handle year one.</p>
               </div>
-              <Link
-                href="/contact?plan=utr-plus-assessment"
-                className="w-full py-3 px-4 text-white text-center rounded-lg transition-all font-semibold mb-8 relative z-10 shadow-lg hover:opacity-90 block"
+              <button
+                onClick={() => handleGetStarted("UTR + Self Assessment")}
+                className="w-full py-3 px-4 text-white text-center rounded-lg transition-all font-semibold mb-8 relative z-10 shadow-lg hover:opacity-90 cursor-pointer"
                 style={{ backgroundColor: "rgb(85, 156, 23)" }}
               >
                 Get Started Now
-              </Link>
+              </button>
               <div className="flex-grow relative z-10">
                 <div className="text-xs tracking-widest text-surface-dim uppercase mb-4 text-center flex items-center justify-center gap-4">
                   <div className="h-px bg-surface-variant/20 flex-grow"></div>
@@ -101,12 +122,12 @@ export default function ServicesPricing() {
                 </div>
                 <p className="mt-4 text-sm text-surface-dim">Professional daily or weekly bookkeeping to keep your records audit-ready and up to date.</p>
               </div>
-              <Link
-                href="/contact?plan=bookkeeping"
-                className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white text-center rounded-lg border border-white/20 transition-colors font-semibold mb-8 block"
+              <button
+                onClick={() => handleGetStarted("Bookkeeping")}
+                className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white text-center rounded-lg border border-white/20 transition-colors font-semibold mb-8 cursor-pointer"
               >
                 Get Started
-              </Link>
+              </button>
               <div className="flex-grow">
                 <div className="text-xs tracking-widest text-surface-dim uppercase mb-4 text-center flex items-center justify-center gap-4">
                   <div className="h-px bg-surface-variant/20 flex-grow"></div>
@@ -135,14 +156,14 @@ export default function ServicesPricing() {
           {/* CTA below pricing */}
           <div className="text-center mt-16">
             <p className="text-surface-dim mb-6 text-sm">Not sure which plan suits you?</p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold transition-all hover:scale-105 hover:shadow-lg"
+            <button
+              onClick={handleTalkToUs}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold transition-all hover:scale-105 hover:shadow-lg cursor-pointer"
               style={{ backgroundColor: "rgb(85, 156, 23)" }}
             >
               <span className="material-symbols-outlined text-[18px]">chat</span>
-              Talk to Us — We'll Help You Choose
-            </Link>
+              Talk to Us — We&apos;ll Help You Choose
+            </button>
           </div>
         </div>
       </section>

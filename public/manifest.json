@@ -1,7 +1,7 @@
 {
   "name": "HMX Accountants",
   "short_name": "HMX",
-  "description": "Professional UK Tax Services - HMRC recognised, AAT licensed.",
+  "description": "Professional UK Tax Services - AAT licensed.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0f1c",

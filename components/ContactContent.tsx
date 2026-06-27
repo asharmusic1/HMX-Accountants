@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 
 const PLAN_LABELS: Record<string, string> = {
@@ -12,11 +11,11 @@ const PLAN_LABELS: Record<string, string> = {
 
 const SERVICES = ["Self Assessment", "UTR Registration", "Bookkeeping", "Other Inquiry"];
 
-export default function ContactContent() {
-  const searchParams = useSearchParams();
-  const planParam = searchParams.get("plan") ?? "";
-  const planLabel = PLAN_LABELS[planParam] ?? "";
+interface ContactContentProps {
+  selectedPlan?: string;
+}
 
+export default function ContactContent({ selectedPlan }: ContactContentProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedService, setSelectedService] = useState("Self Assessment");
   const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string }>({
@@ -24,11 +23,12 @@ export default function ContactContent() {
     message: "",
   });
 
+  // Update selected service when a plan is selected from pricing
   useEffect(() => {
-    if (planLabel) {
-      setSelectedService(planLabel);
+    if (selectedPlan) {
+      setSelectedService(selectedPlan);
     }
-  }, [planLabel]);
+  }, [selectedPlan]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -73,7 +73,7 @@ export default function ContactContent() {
   }
 
   return (
-    <section className="py-section-margin bg-background relative overflow-hidden min-h-[90vh] pt-32 pb-24" id="contact">
+    <section className="py-section-margin bg-background relative overflow-hidden pb-24" id="contact">
       <div className="absolute top-20 left-10 w-64 h-64 bg-secondary-container/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
       <div className="absolute top-40 right-10 w-72 h-72 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-8 left-1/2 w-80 h-80 bg-tertiary-container/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -85,10 +85,10 @@ export default function ContactContent() {
         </div>
 
         {/* Pre-filled plan banner */}
-        {planLabel && (
+        {selectedPlan && (
           <div className="mb-8 p-4 bg-brand-green/10 border border-brand-green/30 text-brand-green rounded-xl text-center font-medium text-sm">
             <span className="material-symbols-outlined text-[16px] mr-1 align-middle">payments</span>
-            You&apos;ve selected the <strong>{planLabel}</strong> plan. Let us know your details below.
+            You&apos;ve selected the <strong>{selectedPlan}</strong> plan. Let us know your details below.
           </div>
         )}
 
@@ -116,12 +116,12 @@ export default function ContactContent() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <FloatingInput id="first_name" label="First Name" type="text" required />
-                <FloatingInput id="last_name" label="Last Name" type="text" required />
+                <FloatingInput id="contact_first_name" name="first_name" label="First Name" type="text" required />
+                <FloatingInput id="contact_last_name" name="last_name" label="Last Name" type="text" required />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <FloatingInput id="email" label="Email" type="email" required />
-                <FloatingInput id="phone" label="Phone Number (optional)" type="tel" />
+                <FloatingInput id="contact_email" name="email" label="Email" type="email" required />
+                <FloatingInput id="contact_phone" name="phone" label="Phone Number (optional)" type="tel" />
               </div>
 
               {/* Service Selection */}
@@ -149,14 +149,14 @@ export default function ContactContent() {
                 <textarea
                   required
                   className="block w-full border-0 border-b border-surface/30 bg-transparent py-2 text-sm text-white focus:border-brand-green focus:ring-0 peer placeholder-transparent min-h-[100px] resize-y"
-                  id="message"
+                  id="contact_message"
                   name="message"
                   placeholder="Message"
                   minLength={10}
                 ></textarea>
                 <label
                   className="absolute left-0 -top-3.5 text-xs text-surface-dim transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-brand-green"
-                  htmlFor="message"
+                  htmlFor="contact_message"
                 >
                   Message
                 </label>
@@ -202,11 +202,13 @@ export default function ContactContent() {
 
 function FloatingInput({
   id,
+  name,
   label,
   type,
   required,
 }: {
   id: string;
+  name: string;
   label: string;
   type: string;
   required?: boolean;
@@ -217,7 +219,7 @@ function FloatingInput({
         required={required}
         className="block w-full border-0 border-b border-surface/30 bg-transparent py-2 text-sm text-white focus:border-brand-green focus:ring-0 peer placeholder-transparent"
         id={id}
-        name={id}
+        name={name}
         placeholder={label}
         type={type}
       />

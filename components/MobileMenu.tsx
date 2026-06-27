@@ -1,16 +1,24 @@
 "use client";
 
-import Link from "next/link";
 import { X } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  activeSection?: string;
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+const menuItems = [
+  { label: "Home", id: "home", icon: "home" },
+  { label: "Overview", id: "overview", icon: "overview" },
+  { label: "Services", id: "services", icon: "business_center" },
+  { label: "About", id: "about", icon: "info" },
+  { label: "Contact", id: "contact", icon: "mail" },
+];
+
+export default function MobileMenu({ isOpen, onClose, activeSection }: MobileMenuProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -22,13 +30,20 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     };
   }, [isOpen]);
 
-  const menuItems = [
-    { label: "Home", href: "/", icon: "home" },
-    { label: "Overview", href: "/overview", icon: "overview" },
-    { label: "Services", href: "/services", icon: "business_center" },
-    { label: "About", href: "/about", icon: "info" },
-    { label: "Contact", href: "/contact", icon: "mail" },
-  ];
+  const handleItemClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+      e.preventDefault();
+      onClose();
+      // Small delay to let menu close animation start, then scroll
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 150);
+    },
+    [onClose]
+  );
 
   return (
     <AnimatePresence>
@@ -66,15 +81,21 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             
             <nav className="flex-1 py-6 px-4 flex flex-col gap-1" aria-label="Mobile navigation">
               {menuItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={onClose}
-                  className="flex items-center gap-3 px-4 py-3.5 text-base font-medium text-on-surface hover:bg-surface-variant rounded-xl transition-colors"
+                <a
+                  key={item.id}
+                  href={`/#${item.id}`}
+                  onClick={(e) => handleItemClick(e, item.id)}
+                  className={`flex items-center gap-3 px-4 py-3.5 text-base font-medium rounded-xl transition-colors ${
+                    activeSection === item.id
+                      ? "text-brand-green bg-brand-green/10 font-bold"
+                      : "text-on-surface hover:bg-surface-variant"
+                  }`}
                 >
-                  <span className="material-symbols-outlined text-brand-green text-[20px]">{item.icon}</span>
+                  <span className={`material-symbols-outlined text-[20px] ${
+                    activeSection === item.id ? "text-brand-green" : "text-brand-green"
+                  }`}>{item.icon}</span>
                   {item.label}
-                </Link>
+                </a>
               ))}
             </nav>
 

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | HMX Accountants",
   },
   description:
-    "Simple, affordable, professional accounting support for self-employed people in the UK. HMRC recognised. AAT licensed.",
+    "Simple, affordable, professional accounting support for self-employed people in the UK. AAT licensed.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

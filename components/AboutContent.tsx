@@ -2,25 +2,27 @@ const WORKSPACE_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuDxfd4
 
 export default function AboutContent() {
   return (
-    <main className="flex-grow pb-section-margin px-margin-mobile md:px-container-padding max-w-[1440px] mx-auto w-full pt-32"
-          style={{
-            backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}>
-      
+    <section
+      id="about"
+      className="pb-section-margin px-margin-mobile md:px-container-padding max-w-[1440px] mx-auto w-full py-section-margin"
+      style={{
+        backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px)",
+        backgroundSize: "40px 40px",
+      }}
+    >
       {/* Hero Section */}
-      <section className="text-center max-w-4xl mx-auto mb-section-margin">
+      <div className="text-center max-w-4xl mx-auto mb-section-margin">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-sm font-medium text-on-surface-variant mb-6">
           <span className="w-2 h-2 rounded-full bg-primary"></span>
           UK-Based Professional Accounting
         </div>
-        <h1 className="text-4xl md:text-[48px] font-bold leading-tight tracking-tight text-on-background mb-6">
+        <h2 className="text-4xl md:text-[48px] font-bold leading-tight tracking-tight text-on-background mb-6">
           Redefining the <span className="text-[#559B16]">Accounting</span> Experience
-        </h1>
+        </h2>
         <p className="text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed">
           HMX Accountants is a UK-based AAT licensed accountancy practice providing clear, affordable, and reliable tax and accounting support for self-employed individuals, sole traders, and small business owners.
         </p>
-      </section>
+      </div>
 
       {/* Bento Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-card-gap max-w-[1280px] mx-auto">
@@ -89,6 +91,6 @@ export default function AboutContent() {
           </ul>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

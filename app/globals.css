@@ -4,7 +4,7 @@
 @font-face {
   font-family: "Lloyds Jack Light";
   src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackLight/lloyds_bank_jack-lightWEB.woff") format('woff');
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -12,13 +12,18 @@
 @font-face {
   font-family: "Lloyds Jack Light";
   src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackMedium/lloyds_bank_jack-mediumWEB.woff") format('woff');
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 *:not(.material-symbols-outlined) {
-  font-family: "Lloyds Jack Light", sans-serif !important;
+  font-family: "Lloyds Jack Light", Arial, sans-serif !important;
+}
+
+/* ── Scroll offset for sticky header ── */
+section[id] {
+  scroll-margin-top: 100px;
 }
 
 :root {

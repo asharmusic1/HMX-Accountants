@@ -59,12 +59,7 @@ export default function HomeMobile() {
               />
             </div>
           </div>
-          <div className="flex justify-start mb-1">
-            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-white/15 rounded-full border border-white/20 backdrop-blur-sm">
-              <span className="material-symbols-outlined text-[10px] text-brand-green">verified</span>
-              <span className="font-mono text-[8px] text-white uppercase tracking-wider font-semibold">HMRC Approved</span>
-            </div>
-          </div>
+
           <h1
             className="text-[16px] font-black leading-tight tracking-tight text-white drop-shadow-md"
           >
