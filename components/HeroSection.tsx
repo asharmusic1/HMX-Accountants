@@ -36,6 +36,15 @@ export default function HeroSection() {
       {/* ─── Desktop Content ─── */}
       <div className="hidden md:flex relative z-10 w-full px-6 md:px-12 lg:px-[8%] xl:px-[10%] justify-start pt-32 pb-24">
         <div className="flex flex-col text-left items-start max-w-xl lg:max-w-2xl">
+          {/* Logo */}
+          <div className="relative -ml-2 z-20 mb-4">
+            <img
+              alt="HMX Accountants Logo"
+              className="w-auto object-contain h-28 lg:h-36 select-none drop-shadow-lg"
+              src="/hmx-hero-logo.png"
+            />
+          </div>
+
           {/* Headline */}
           <h1 className="text-5xl md:text-[64px] font-black leading-[1.05] tracking-tight text-white mb-6 relative z-20 drop-shadow-lg">
             You Run The Business,<br />
