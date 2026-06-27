@@ -58,27 +58,27 @@ export default function HeroSection() {
             for <span className="font-bold text-white">self-employed people in the UK.</span>
           </p>
 
-          {/* Trust Signals */}
-          <div className="flex items-center gap-6 md:gap-10 relative z-20">
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-3 border border-white/20 group-hover:scale-105 transition-transform">
-                <img alt="Money Bag" className="w-9 h-9 object-contain" src={MONEY_BAG_SRC} />
+          {/* High-Contrast Trust Signal Badges */}
+          <div className="flex flex-wrap items-center gap-4 lg:gap-6 relative z-20">
+            <div className="flex items-center gap-3.5 px-5 py-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white shadow-xl group hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+                <img alt="Money Bag" className="w-7 h-7 object-contain" src={MONEY_BAG_SRC} />
               </div>
-              <span className="text-sm font-semibold text-white drop-shadow-sm">Affordable Service</span>
+              <span className="text-sm font-bold text-on-surface tracking-tight">Affordable Service</span>
             </div>
-            <div className="w-px h-14 bg-white/20"></div>
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-3 border border-white/20 group-hover:scale-105 transition-transform">
-                <span className="material-symbols-outlined text-brand-green text-3xl">description</span>
+
+            <div className="flex items-center gap-3.5 px-5 py-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white shadow-xl group hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+                <span className="material-symbols-outlined text-brand-green text-2xl font-bold">description</span>
               </div>
-              <span className="text-sm font-semibold text-white drop-shadow-sm">HMRC Compliant</span>
+              <span className="text-sm font-bold text-on-surface tracking-tight">HMRC Compliant</span>
             </div>
-            <div className="w-px h-14 bg-white/20"></div>
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-3 border border-white/20 group-hover:scale-105 transition-transform">
-                <span className="material-symbols-outlined text-brand-green text-3xl">lock</span>
+
+            <div className="flex items-center gap-3.5 px-5 py-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white shadow-xl group hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+                <span className="material-symbols-outlined text-brand-green text-2xl font-bold">lock</span>
               </div>
-              <span className="text-sm font-semibold text-white drop-shadow-sm">Trusted Support</span>
+              <span className="text-sm font-bold text-on-surface tracking-tight">Trusted Support</span>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function HeroSection() {
 
       {/* ─── Mobile Content ─── */}
       <div className="flex md:hidden relative z-10 w-full px-margin-mobile pt-24 pb-8 flex-col">
-        <div className="relative z-10 space-y-2 pt-0 items-center text-center flex flex-col">
+        <div className="relative z-10 space-y-3 pt-0 items-center text-center flex flex-col">
           {/* HMX Logo (Extra Large on mobile) */}
           <div className="mb-0 flex justify-center relative w-full">
             <div className="relative h-80 w-[360px] max-w-full flex items-center justify-center z-10">
@@ -110,10 +110,32 @@ export default function HeroSection() {
             You Run The Business,{" "}
             <span className="text-brand-green block mt-1">We&apos;ll Handle HMRC</span>
           </h1>
-          <p className="text-[12.5px] text-white/90 font-bold leading-relaxed drop-shadow-sm text-center max-w-xs">
+          <p className="text-[12.5px] text-white/90 font-bold leading-relaxed drop-shadow-sm text-center max-w-xs mb-3">
             Simple, affordable, professional accounting support<br />
             for <span className="font-extrabold text-white">self-employed people in the UK.</span>
           </p>
+
+          {/* High-Contrast Mobile Trust Signals */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2 w-full max-w-sm">
+            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-md">
+              <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+                <img alt="Money Bag" className="w-5 h-5 object-contain" src={MONEY_BAG_SRC} />
+              </div>
+              <span className="text-xs font-bold text-on-surface">Affordable Service</span>
+            </div>
+            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-md">
+              <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+                <span className="material-symbols-outlined text-brand-green text-lg font-bold">description</span>
+              </div>
+              <span className="text-xs font-bold text-on-surface">HMRC Compliant</span>
+            </div>
+            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-md">
+              <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+                <span className="material-symbols-outlined text-brand-green text-lg font-bold">lock</span>
+              </div>
+              <span className="text-xs font-bold text-on-surface">Trusted Support</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
