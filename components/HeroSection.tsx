@@ -33,12 +33,12 @@ export default function HeroSection() {
 
       {/* ─── Desktop Content ─── */}
       <div className="hidden md:flex relative z-10 w-full px-6 md:px-12 lg:px-[8%] xl:px-[10%] justify-start pt-32 pb-24">
-        <div className="flex flex-col text-left items-start max-w-xl lg:max-w-2xl">
-          {/* Logo (2x size) */}
-          <div className="relative -ml-3 z-20 mb-2">
+        <div className="flex flex-col text-left items-start max-w-2xl lg:max-w-3xl">
+          {/* Logo (Extra Large) */}
+          <div className="relative -ml-6 z-20 -mb-4 -mt-6">
             <img
               alt="HMX Accountants Logo"
-              className="w-auto object-contain h-56 lg:h-72 select-none drop-shadow-xl"
+              className="w-auto object-contain h-72 lg:h-[380px] xl:h-[440px] select-none drop-shadow-2xl"
               src="/hmx-hero-logo.png"
             />
           </div>
@@ -93,24 +93,24 @@ export default function HeroSection() {
       </div>
 
       {/* ─── Mobile Content ─── */}
-      <div className="flex md:hidden relative z-10 w-full px-margin-mobile pt-28 pb-8 flex-col">
-        <div className="relative z-10 space-y-3 pt-0 items-center text-center flex flex-col">
-          {/* HMX Logo (2x size on mobile) */}
-          <div className="mb-2 flex justify-center relative">
-            <div className="relative h-64 w-80 max-w-full flex items-center justify-center z-10">
+      <div className="flex md:hidden relative z-10 w-full px-margin-mobile pt-24 pb-8 flex-col">
+        <div className="relative z-10 space-y-2 pt-0 items-center text-center flex flex-col">
+          {/* HMX Logo (Extra Large on mobile) */}
+          <div className="mb-0 flex justify-center relative w-full">
+            <div className="relative h-80 w-[360px] max-w-full flex items-center justify-center z-10">
               <img
                 src="/hmx-hero-logo.png"
                 alt="HMX Accountants Logo"
-                className="h-full w-auto object-contain select-none drop-shadow-xl"
+                className="h-full w-auto object-contain select-none drop-shadow-2xl"
               />
             </div>
           </div>
 
-          <h1 className="text-[20px] font-black leading-tight tracking-tight text-white drop-shadow-md text-center">
+          <h1 className="text-[22px] font-black leading-tight tracking-tight text-white drop-shadow-md text-center -mt-4">
             You Run The Business,{" "}
             <span className="text-brand-green block mt-1">We&apos;ll Handle HMRC</span>
           </h1>
-          <p className="text-[12px] text-white/90 font-bold leading-relaxed drop-shadow-sm text-center max-w-xs">
+          <p className="text-[12.5px] text-white/90 font-bold leading-relaxed drop-shadow-sm text-center max-w-xs">
             Simple, affordable, professional accounting support<br />
             for <span className="font-extrabold text-white">self-employed people in the UK.</span>
           </p>
