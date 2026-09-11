@@ -138,7 +138,7 @@ export default function HomeHeroDesktop() {
         <div className="absolute right-margin-mobile md:right-container-padding z-30 mb-8 transform origin-bottom-right bottom-[-52px]">
           <div className="inline-flex items-center gap-2 border border-brand-green/20 rounded-full px-4 py-2 backdrop-blur-sm bg-white">
             <span className="material-symbols-outlined text-brand-green text-lg">card_giftcard</span>
-            <span className="text-xs font-bold text-brand-green tracking-wide uppercase">Refer a friend. Get £30 off.</span>
+            <span className="text-xs font-bold text-brand-green tracking-wide uppercase">Refer a friend. Get £25 off.</span>
           </div>
         </div>
       </div>

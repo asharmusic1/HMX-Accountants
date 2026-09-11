@@ -56,9 +56,13 @@ export default function ContactContent({ selectedPlan }: ContactContentProps) {
       const result = await response.json();
 
       if (response.ok) {
+        // Open the pre-filled email in the user's mail app
+        if (result.mailtoUrl) {
+          window.location.href = result.mailtoUrl;
+        }
         setStatus({
           type: "success",
-          message: "Your message has been sent successfully. We will get back to you soon!",
+          message: "Your email app should open with your message pre-filled. Please send it to complete your enquiry!",
         });
         (e.target as HTMLFormElement).reset();
         setSelectedService("Self Assessment");
@@ -71,6 +75,7 @@ export default function ContactContent({ selectedPlan }: ContactContentProps) {
       setIsSubmitting(false);
     }
   }
+
 
   return (
     <section className="py-section-margin bg-background relative overflow-hidden pb-24" id="contact">

@@ -6,10 +6,10 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex items-center overflow-hidden min-h-screen"
+      className="relative flex items-center overflow-hidden"
       style={{ backgroundColor: "#213145" }}
     >
-      {/* Video Background (Plays inline, autoPlay, muted, loop forever) */}
+      {/* Video Background */}
       <video
         autoPlay
         muted
@@ -21,17 +21,17 @@ export default function HeroSection() {
         <source src="/woman-working-smartphone.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay for text readability on top of video */}
+      {/* Dark overlay for text readability */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.7) 100%)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.72) 100%)",
           zIndex: 1,
         }}
       />
 
       {/* ─── Desktop Content ─── */}
-      <div className="hidden md:flex relative z-10 w-full px-6 md:px-12 lg:px-[8%] xl:px-[10%] justify-start pt-32 pb-24">
+      <div className="hidden md:flex relative z-10 w-full px-6 md:px-12 lg:px-[8%] xl:px-[10%] justify-start pt-32 pb-24 min-h-screen items-center">
         <div className="flex flex-col text-left items-start max-w-2xl lg:max-w-3xl">
           {/* Logo (Extra Large) */}
           <div className="relative -ml-6 z-20 -mb-4 -mt-6">
@@ -57,7 +57,7 @@ export default function HeroSection() {
             for <span className="font-bold text-white">self-employed people in the UK.</span>
           </p>
 
-          {/* High-Contrast Trust Signal Badges */}
+          {/* Trust Signal Badges */}
           <div className="flex flex-wrap items-center gap-4 lg:gap-6 relative z-20">
             <div className="flex items-center gap-3.5 px-5 py-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white shadow-xl group hover:scale-105 transition-transform">
               <div className="w-12 h-12 rounded-xl bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
@@ -80,63 +80,70 @@ export default function HeroSection() {
               <span className="text-sm font-bold text-on-surface tracking-tight">Trusted Support</span>
             </div>
           </div>
-        </div>
 
-        {/* Referral Tag */}
-        <div className="absolute right-margin-mobile md:right-container-padding z-30 mb-8 transform origin-bottom-right bottom-[-52px]">
-          <div className="inline-flex items-center gap-2 border border-brand-green/20 rounded-full px-4 py-2 backdrop-blur-sm bg-white">
-            <span className="material-symbols-outlined text-brand-green text-lg">card_giftcard</span>
-            <span className="text-xs font-bold text-brand-green tracking-wide uppercase">Refer a friend. Get £30 off.</span>
+          {/* Referral Tag — desktop */}
+          <div className="mt-8 relative z-20">
+            <div className="inline-flex items-center gap-2 border border-brand-green/40 rounded-full px-4 py-2 backdrop-blur-sm bg-white/95 shadow-md">
+              <span className="material-symbols-outlined text-brand-green text-lg">card_giftcard</span>
+              <span className="text-xs font-bold text-brand-green tracking-wide uppercase">Refer a friend. Get £25 off.</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ─── Mobile Content (All layered directly on top of the background video) ─── */}
-      <div className="flex md:hidden relative z-10 w-full px-margin-mobile pt-24 pb-14 flex-col min-h-screen justify-center">
-        <div className="relative z-10 space-y-3.5 pt-0 items-center text-center flex flex-col my-auto">
-          {/* HMX Logo on top of video */}
-          <div className="mb-0 flex justify-center relative w-full">
-            <div className="relative h-32 w-64 max-w-full flex items-center justify-center z-10">
-              <img
-                src="/hmx-hero-logo.png"
-                alt="HMX Accountants Logo"
-                className="h-full w-auto object-contain select-none drop-shadow-2xl"
-              />
+      {/* ─── Mobile Content ─── */}
+      <div className="flex md:hidden relative z-10 w-full px-5 pt-28 pb-12 flex-col">
+        {/* HMX Logo */}
+        <div className="mb-2 relative -ml-3">
+          <img
+            src="/hmx-hero-logo.png"
+            alt="HMX Accountants Logo"
+            className="h-40 w-auto object-contain select-none drop-shadow-2xl"
+          />
+        </div>
+
+        {/* Headline */}
+        <h1 className="text-[28px] font-black leading-tight tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] mb-3">
+          You Run The Business,{" "}
+          <span className="text-brand-green block">We&apos;ll Handle HMRC</span>
+        </h1>
+
+        {/* Divider */}
+        <div className="w-10 h-1 bg-brand-green mb-4 rounded-full"></div>
+
+        {/* Subtext */}
+        <p className="text-[14px] text-white/90 font-medium leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] mb-6 max-w-xs">
+          Simple, affordable, professional accounting support<br />
+          for <span className="font-extrabold text-white">self-employed people in the UK.</span>
+        </p>
+
+        {/* Trust Signals */}
+        <div className="flex flex-wrap items-center gap-2 mb-6">
+          <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-lg">
+            <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+              <img alt="Money Bag" className="w-5 h-5 object-contain" src={MONEY_BAG_SRC} />
             </div>
+            <span className="text-xs font-bold text-on-surface">Affordable Service</span>
           </div>
-
-          {/* Headline on top of video */}
-          <h1 className="text-[25px] font-black leading-tight tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] text-center -mt-1">
-            You Run The Business,{" "}
-            <span className="text-brand-green block mt-1">We&apos;ll Handle HMRC</span>
-          </h1>
-
-          {/* Subtext on top of video */}
-          <p className="text-[13px] text-white font-medium leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] text-center max-w-xs">
-            Simple, affordable, professional accounting support<br />
-            for <span className="font-extrabold text-white">self-employed people in the UK.</span>
-          </p>
-
-          {/* High-Contrast Mobile Trust Signals on top of video */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2 w-full max-w-sm">
-            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-lg">
-              <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
-                <img alt="Money Bag" className="w-5 h-5 object-contain" src={MONEY_BAG_SRC} />
-              </div>
-              <span className="text-xs font-bold text-on-surface">Affordable Service</span>
+          <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-lg">
+            <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+              <span className="material-symbols-outlined text-brand-green text-lg font-bold">description</span>
             </div>
-            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-lg">
-              <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
-                <span className="material-symbols-outlined text-brand-green text-lg font-bold">description</span>
-              </div>
-              <span className="text-xs font-bold text-on-surface">HMRC Compliant</span>
+            <span className="text-xs font-bold text-on-surface">HMRC Compliant</span>
+          </div>
+          <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-lg">
+            <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
+              <span className="material-symbols-outlined text-brand-green text-lg font-bold">lock</span>
             </div>
-            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-lg">
-              <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
-                <span className="material-symbols-outlined text-brand-green text-lg font-bold">lock</span>
-              </div>
-              <span className="text-xs font-bold text-on-surface">Trusted Support</span>
-            </div>
+            <span className="text-xs font-bold text-on-surface">Trusted Support</span>
+          </div>
+        </div>
+
+        {/* Referral Tag — mobile */}
+        <div>
+          <div className="inline-flex items-center gap-2 border border-brand-green/40 rounded-full px-4 py-2 backdrop-blur-sm bg-white/95 shadow-md">
+            <span className="material-symbols-outlined text-brand-green text-lg">card_giftcard</span>
+            <span className="text-xs font-bold text-brand-green tracking-wide uppercase">Refer a friend. Get £25 off.</span>
           </div>
         </div>
       </div>
