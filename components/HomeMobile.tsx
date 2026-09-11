@@ -230,7 +230,7 @@ export default function HomeMobile() {
             <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-1">
               <span className="material-symbols-outlined text-primary text-2xl">redeem</span>
             </div>
-            <h3 className="text-xl uppercase tracking-[0.1em] font-bold text-on-surface">Refer a Friend. Get £30 Off.</h3>
+            <h3 className="text-xl uppercase tracking-[0.1em] font-bold text-on-surface">Refer a Friend. Get £25 Off.</h3>
             <p className="text-on-surface-variant text-sm italic opacity-80 mb-2">Share the love and save right away</p>
 
             {/* Swipe Right Bar */}
