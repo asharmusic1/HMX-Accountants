@@ -9,22 +9,22 @@ export default function HeroSection() {
       className="relative flex items-center overflow-hidden min-h-screen"
       style={{ backgroundColor: "#213145" }}
     >
-      {/* Video Background (Plays inline, autoPlay, muted, loop forever) */}
+      {/* Desktop Video Background (Plays inline, autoPlay, muted, loop forever) */}
       <video
         autoPlay
         muted
         loop
         playsInline
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
         style={{ objectPosition: "center center" }}
       >
         <source src="/woman-working-smartphone.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay for text readability */}
+      {/* Dark overlay for text readability (Desktop) */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="hidden md:block absolute inset-0 pointer-events-none"
         style={{
           background: "linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.55) 100%)",
           zIndex: 1,
@@ -93,11 +93,11 @@ export default function HeroSection() {
       </div>
 
       {/* ─── Mobile Content ─── */}
-      <div className="flex md:hidden relative z-10 w-full px-margin-mobile pt-24 pb-8 flex-col">
+      <div className="flex md:hidden relative z-10 w-full px-margin-mobile pt-24 pb-12 flex-col">
         <div className="relative z-10 space-y-3 pt-0 items-center text-center flex flex-col">
-          {/* HMX Logo (Extra Large on mobile) */}
+          {/* HMX Logo */}
           <div className="mb-0 flex justify-center relative w-full">
-            <div className="relative h-80 w-[360px] max-w-full flex items-center justify-center z-10">
+            <div className="relative h-44 w-72 max-w-full flex items-center justify-center z-10">
               <img
                 src="/hmx-hero-logo.png"
                 alt="HMX Accountants Logo"
@@ -106,17 +106,39 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <h1 className="text-[22px] font-black leading-tight tracking-tight text-white drop-shadow-md text-center -mt-4">
+          <h1 className="text-[24px] font-black leading-tight tracking-tight text-white drop-shadow-md text-center -mt-2">
             You Run The Business,{" "}
             <span className="text-brand-green block mt-1">We&apos;ll Handle HMRC</span>
           </h1>
-          <p className="text-[12.5px] text-white/90 font-bold leading-relaxed drop-shadow-sm text-center max-w-xs mb-3">
+          <p className="text-[13px] text-white/90 font-medium leading-relaxed drop-shadow-sm text-center max-w-xs mb-1">
             Simple, affordable, professional accounting support<br />
             for <span className="font-extrabold text-white">self-employed people in the UK.</span>
           </p>
 
+          {/* 16:9 Video Container matching desktop version aspect ratio, fitted to mobile screen */}
+          <div className="w-full max-w-sm my-3 rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900/60 relative">
+            <div className="relative w-full aspect-video">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden="true"
+                className="w-full h-full object-cover pointer-events-none select-none"
+              >
+                <source src="/woman-working-smartphone.mp4" type="video/mp4" />
+              </video>
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: "linear-gradient(135deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%)",
+                }}
+              />
+            </div>
+          </div>
+
           {/* High-Contrast Mobile Trust Signals */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2 w-full max-w-sm">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1 w-full max-w-sm">
             <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/95 backdrop-blur-md border border-white shadow-md">
               <div className="w-8 h-8 rounded-lg bg-[#F0F9EB] flex items-center justify-center shrink-0 border border-brand-green/20">
                 <img alt="Money Bag" className="w-5 h-5 object-contain" src={MONEY_BAG_SRC} />

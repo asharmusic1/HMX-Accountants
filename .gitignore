@@ -53,3 +53,7 @@ html2jsx.js
 
 # Local Netlify folder
 .netlify
+
+# Archives
+*.zip
+
