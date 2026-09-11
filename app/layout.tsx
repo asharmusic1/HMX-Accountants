@@ -49,6 +49,17 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans selection:bg-primary-container selection:text-on-primary-container">
+        {/* Hidden form for Netlify Forms detection at build time */}
+        <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <input name="bot-field" type="text" />
+          <input name="firstName" type="text" />
+          <input name="lastName" type="text" />
+          <input name="email" type="email" />
+          <input name="phone" type="tel" />
+          <input name="service" type="text" />
+          <textarea name="message"></textarea>
+        </form>
         <Header />
         <main className="flex-1">
           {children}

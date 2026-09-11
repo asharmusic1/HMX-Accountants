@@ -30,51 +30,60 @@ export default function ContactContent({ selectedPlan }: ContactContentProps) {
     }
   }, [selectedPlan]);
 
+  function encode(data: Record<string, string>) {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key] || ""))
+      .join("&");
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({ type: null, message: "" });
 
     const formData = new FormData(e.currentTarget);
-    const data = {
-      firstName: formData.get("first_name"),
-      lastName: formData.get("last_name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      service: formData.get("service") || selectedService,
-      message: formData.get("message"),
-      website: formData.get("website"),
+
+    const data: Record<string, string> = {
+      "form-name": "contact",
+      firstName: formData.get("first_name") as string,
+      lastName: formData.get("last_name") as string,
+      email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || "",
+      service: (formData.get("service") as string) || selectedService,
+      message: formData.get("message") as string,
+      "bot-field": (formData.get("website") as string) || "",
     };
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(data),
       });
 
-      const result = await response.json();
-
       if (response.ok) {
-        // Open the pre-filled email in the user's mail app
-        if (result.mailtoUrl) {
-          window.location.href = result.mailtoUrl;
-        }
         setStatus({
           type: "success",
-          message: "Your email app should open with your message pre-filled. Please send it to complete your enquiry!",
+          message: "Your message has been sent successfully! We will get back to you shortly.",
         });
         (e.target as HTMLFormElement).reset();
         setSelectedService("Self Assessment");
       } else {
-        setStatus({ type: "error", message: result.error || "Failed to send message. Please try again." });
+        setStatus({
+          type: "error",
+          message: "Failed to send your message. Please email us directly at info@hmxaccountants.co.uk",
+        });
       }
     } catch {
-      setStatus({ type: "error", message: "A network error occurred. Please try again later." });
+      setStatus({
+        type: "error",
+        message: "A network error occurred. Please email us at info@hmxaccountants.co.uk",
+      });
     } finally {
       setIsSubmitting(false);
     }
   }
+
 
 
   return (
